@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 
+void readFile(char* , char*);
+
 int main(int argc, const char * argv[])
 {
 
@@ -15,4 +17,3 @@ int main(int argc, const char * argv[])
     printf("Hello, World!\n");
     return 0;
 }
-

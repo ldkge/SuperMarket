@@ -1,5 +1,5 @@
 //
-//  main.c
+//  FileOperations.c
 //  SuperMarket
 //
 //  Created by George Lydakis on 3/12/13.
@@ -10,8 +10,12 @@
 #include <string.h>
 #include "FileOperations.h"
 
-int main(int argc, const char * argv[])
+void readFile(char *fileName, char *output)
 {
-    return 0;
+    FILE * file;
+    
+    file = fopen(fileName, "r");
+    
+    fscanf(file, "%s", output);
+    
 }
-

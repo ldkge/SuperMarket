@@ -17,5 +17,4 @@ void readFile(char *fileName, char *output)
     file = fopen(fileName, "r");
     
     fscanf(file, "%s", output);
-    
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00AB0F6E16EF99DF004F95C0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F6D16EF99DF004F95C0 /* main.c */; };
 		00AB0F7016EF99DF004F95C0 /* SuperMarket.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */; };
-		00AB0F7C16EFA088004F95C0 /* fileOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F7B16EFA088004F95C0 /* fileOperations.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,8 +31,6 @@
 		00AB0F7616EF9C4F004F95C0 /* file1.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = file1.rtf; sourceTree = "<group>"; };
 		00AB0F7816EF9D78004F95C0 /* file2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = file2.rtf; sourceTree = "<group>"; };
 		00AB0F7916EF9E1E004F95C0 /* file3.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = file3.rtf; sourceTree = "<group>"; };
-		00AB0F7B16EFA088004F95C0 /* fileOperations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fileOperations.c; sourceTree = "<group>"; };
-		00AB0F7E16EFA1DB004F95C0 /* fileOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fileOperations.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +85,6 @@
 		00AB0F7A16EFA064004F95C0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				00AB0F7B16EFA088004F95C0 /* fileOperations.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -96,7 +92,6 @@
 		00AB0F7D16EFA1B4004F95C0 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				00AB0F7E16EFA1DB004F95C0 /* fileOperations.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -153,7 +148,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				00AB0F6E16EF99DF004F95C0 /* main.c in Sources */,
-				00AB0F7C16EFA088004F95C0 /* fileOperations.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

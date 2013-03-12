@@ -10,11 +10,16 @@
 #include <string.h>
 #include "FileOperations.h"
 
-void readFile(char *fileName, char *output)
+void readFile(char fileName[], char *output)
 {
     FILE * file;
     
     file = fopen(fileName, "r");
     
-    fscanf(file, "%s", output);
+    if (file != NULL) {
+        fgets(output, sizeof(output), file);
+    }
+    
+    
+    fclose(file);
 }

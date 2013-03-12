@@ -16,7 +16,7 @@
 		00AB0F6816EF99DF004F95C0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 				00AB0F7016EF99DF004F95C0 /* SuperMarket.1 in CopyFiles */,
@@ -252,6 +252,7 @@
 				00AB0F7516EF99DF004F95C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

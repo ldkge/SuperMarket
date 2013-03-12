@@ -10,8 +10,18 @@
 #include <string.h>
 #include "FileOperations.h"
 
+#define N 25
+
 int main(int argc, const char * argv[])
 {
+    char outStream[] = {0};
+    
+    readFile("file1.rtf", outStream);
+    
+    printf("%s", outStream);
+    
+    
+    
     return 0;
 }
 

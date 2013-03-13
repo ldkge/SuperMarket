@@ -9,6 +9,7 @@
 #ifndef SuperMarket_FileOperations_h
 #define SuperMarket_FileOperations_h
 
-void readFile(char [], char []);
+char readFile(char [], char *);
+void parseData(char [], char [][100]);
 
 #endif

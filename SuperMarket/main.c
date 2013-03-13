@@ -10,13 +10,13 @@
 #include <string.h>
 #include "FileOperations.h"
 
-#define N 25
+#define N 100
 
 int main(int argc, const char * argv[])
 {
-    char outStream[] = {0};
+    char outStream[N] = {0};
     
-    readFile("file1.rtf", outStream);
+    readFile("file1.txt", outStream);
     
     printf("%s", outStream);
     

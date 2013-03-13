@@ -10,16 +10,29 @@
 #include <string.h>
 #include "FileOperations.h"
 
-void readFile(char fileName[], char *output)
+char readFile(char fileName[], char *output)
 {
-    FILE * file;
+    FILE *file;
+    char *check = NULL;
     
     file = fopen(fileName, "r");
     
     if (file != NULL) {
-        fgets(output, sizeof(output), file);
+        check = fgets(output, sizeof(output), file);
     }
     
     
     fclose(file);
+    
+    return *check;
+}
+
+void parseData(char input[], char output[][100])
+{
+    char *check = NULL;
+    int i = 0;
+    
+    do {
+        check = readFile("file1.txt", output[i]);
+    } while (check != NULL);
 }

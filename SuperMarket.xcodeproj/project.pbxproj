@@ -29,11 +29,11 @@
 		00AB0F6A16EF99DF004F95C0 /* SuperMarket */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SuperMarket; sourceTree = BUILT_PRODUCTS_DIR; };
 		00AB0F6D16EF99DF004F95C0 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SuperMarket.1; sourceTree = "<group>"; };
-		00AB0F7616EF9C4F004F95C0 /* file1.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = file1.rtf; sourceTree = "<group>"; };
-		00AB0F7816EF9D78004F95C0 /* file2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = file2.rtf; sourceTree = "<group>"; };
-		00AB0F7916EF9E1E004F95C0 /* file3.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = file3.rtf; sourceTree = "<group>"; };
 		00AB0F8216EFA6D3004F95C0 /* FileOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileOperations.h; sourceTree = "<group>"; };
 		00AB0F8316EFA6DF004F95C0 /* FileOperations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FileOperations.c; sourceTree = "<group>"; };
+		00EF027E16F08F9400F81F81 /* file1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file1.txt; sourceTree = "<group>"; };
+		00EF027F16F08F9400F81F81 /* file2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file2.txt; sourceTree = "<group>"; };
+		00EF028016F08F9400F81F81 /* file3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file3.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +78,9 @@
 		00AB0F7716EF9C55004F95C0 /* Data Files */ = {
 			isa = PBXGroup;
 			children = (
-				00AB0F7616EF9C4F004F95C0 /* file1.rtf */,
-				00AB0F7816EF9D78004F95C0 /* file2.rtf */,
-				00AB0F7916EF9E1E004F95C0 /* file3.rtf */,
+				00EF027E16F08F9400F81F81 /* file1.txt */,
+				00EF027F16F08F9400F81F81 /* file2.txt */,
+				00EF028016F08F9400F81F81 /* file3.txt */,
 			);
 			name = "Data Files";
 			sourceTree = "<group>";

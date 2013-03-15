@@ -9,7 +9,18 @@
 #ifndef SuperMarket_FileOperations_h
 #define SuperMarket_FileOperations_h
 
-char readFile(char [], char *);
-void parseData(char [], char [][100]);
+struct customerData {
+    int day;
+    char customerID[15];
+    char products[][20];
+};
+
+typedef struct customerData CustomerData;
+
+CustomerData readCustomerFile(char []);
+void readCategoriesFile();
+void readPricesFile();
+
+
 
 #endif

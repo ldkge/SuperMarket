@@ -14,11 +14,9 @@
 
 int main(int argc, const char * argv[])
 {
-    char outStream[N] = {0};
+    char outData[N][N] = {0};
     
-    readFile("file1.txt", outStream);
-    
-    printf("%s", outStream);
+    readFile("file1.txt", outData);
     
     
     

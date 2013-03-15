@@ -68,21 +68,21 @@
 			children = (
 				00AB0F7D16EFA1B4004F95C0 /* Headers */,
 				00AB0F7A16EFA064004F95C0 /* Source */,
-				00AB0F7716EF9C55004F95C0 /* Data Files */,
+				00AB0F7716EF9C55004F95C0 /* Data */,
 				00AB0F6D16EF99DF004F95C0 /* main.c */,
 				00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */,
 			);
 			path = SuperMarket;
 			sourceTree = "<group>";
 		};
-		00AB0F7716EF9C55004F95C0 /* Data Files */ = {
+		00AB0F7716EF9C55004F95C0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				00EF027E16F08F9400F81F81 /* file1.txt */,
 				00EF027F16F08F9400F81F81 /* file2.txt */,
 				00EF028016F08F9400F81F81 /* file3.txt */,
 			);
-			name = "Data Files";
+			name = Data;
 			sourceTree = "<group>";
 		};
 		00AB0F7A16EFA064004F95C0 /* Source */ = {

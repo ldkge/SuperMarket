@@ -16,21 +16,21 @@
 CustomerData readCustomerFile(char fileName[])
 {
     CustomerData data;
-    FILE *file;
+    FILE *file = NULL;
     char *check = NULL;
     char output[N] = {0};
     char *pch;
-    char *pch2;
-    char *pch3;
-    char *tokens1[3];
-    char tokens2[20] = {0};
     static int i = 1;
     int j = 0;
     int k = 0;
     int l = 0;
     
-    file = fopen(fileName, "r");
-    
+    if (fileName != NULL) {
+        file = fopen(fileName, "r");
+    }
+    else {
+        i = 1;
+    }
     
     if (file != NULL) {
         
@@ -41,42 +41,44 @@ CustomerData readCustomerFile(char fileName[])
             l++;
         } while (check != NULL && l < i);
         
+        if (check == NULL) {
+            strcpy(data.customerID, "done");
+            return data;
+        }
+        
         i++;
         
-        // Split the line in the first three pieces
+        pch = strtok(output, " ,;");
         
-        pch = strtok(output, " ");
+        // Split each line and store data
         
         while (pch != NULL) {
-            tokens1[j++] = pch;
-            pch = strtok(NULL, " ");
+            if (!strcmp(pch, "\r\n")) {
+                break;
+            }
+            
+            if (j == 0) {
+                data.day = ((int)*pch-48);
+            }
+            else if (j == 1) {
+                strcpy(data.customerID, pch);
+            }
+            else {
+                if ((j%2) == 0) {
+                    strcpy(data.products[k].productName, pch);
+                }
+                if ((j%2) == 1) {
+                    data.products[k++].quantity = *pch;
+                }
+            }
+            
+            pch = strtok(NULL, " ,;");
+            
+            j++;
         }
 
         j = 0;
         
-        // Split the 3rd string to Product Name and quantity
-        // Save them in data struct
-        
-        pch2 = strtok(tokens1[2], ";");
-        
-        while (pch2 != NULL) {
-            tokens2[j] = *pch2;
-            
-            pch3 = strtok(&tokens2[j++], ",");
-            
-            while (pch3 != NULL) {
-                strcpy(&data.products[k][k%2], pch3);
-                pch3 = strtok(NULL, ",");
-                k++;
-            }
-
-            pch2 = strtok(NULL, ";");
-        }
-        
-        data.day = *tokens1[0];
-        strcpy(data.customerID, tokens1[1]);
-        
-
     }
     
     
@@ -84,3 +86,24 @@ CustomerData readCustomerFile(char fileName[])
     
     return data;
 }
+
+MultiplierData readCategoriesFile(char fileName[])
+{
+    MultiplierData data[50];
+    FILE *file = NULL;
+    char output[N] = {0};
+    char *check = NULL;
+    
+    file = fopen(fileName, "r");
+    
+    if (file != NULL) {
+        do {
+            check = fgets(output, sizeof(output), file);
+        } while (check != NULL);
+        
+        
+    }
+    
+    fclose(file);
+}
+

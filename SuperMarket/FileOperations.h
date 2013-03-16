@@ -9,16 +9,27 @@
 #ifndef SuperMarket_FileOperations_h
 #define SuperMarket_FileOperations_h
 
+struct Products {
+    char productName[3];
+    char quantity;
+};
+
 struct customerData {
     int day;
-    char customerID[15];
-    char products[][20];
+    char customerID[16];
+    struct Products products[50];
+};
+
+struct multiplierData {
+    int multiplier;
+    char products[50];
 };
 
 typedef struct customerData CustomerData;
+typedef struct multiplierData MultiplierData;
 
 CustomerData readCustomerFile(char []);
-void readCategoriesFile();
+MultiplierData readCategoriesFile(char []);
 void readPricesFile();
 
 

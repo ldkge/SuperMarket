@@ -14,9 +14,9 @@
 
 int main(int argc, const char * argv[])
 {
-    char outData[N][N] = {0};
+    CustomerData outData;
     
-    readFile("file1.txt", outData);
+    outData = readCustomerFile("file1.txt");
     
     
     

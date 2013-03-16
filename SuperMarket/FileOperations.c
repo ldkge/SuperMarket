@@ -22,7 +22,7 @@ CustomerData readCustomerFile(char fileName[])
     char *pch;
     char *pch2;
     char *pch3;
-    char tokens1[3] = {0};
+    char *tokens1[3];
     char tokens2[20] = {0};
     static int i = 1;
     int j = 0;
@@ -48,8 +48,8 @@ CustomerData readCustomerFile(char fileName[])
         pch = strtok(output, " ");
         
         while (pch != NULL) {
-            tokens1[j++] = *pch;
-            strtok(NULL, " ");
+            tokens1[j++] = pch;
+            pch = strtok(NULL, " ");
         }
 
         j = 0;
@@ -57,7 +57,7 @@ CustomerData readCustomerFile(char fileName[])
         // Split the 3rd string to Product Name and quantity
         // Save them in data struct
         
-        pch2 = strtok(&tokens1[3], ";");
+        pch2 = strtok(tokens1[2], ";");
         
         while (pch2 != NULL) {
             tokens2[j] = *pch2;
@@ -66,14 +66,15 @@ CustomerData readCustomerFile(char fileName[])
             
             while (pch3 != NULL) {
                 strcpy(&data.products[k][k%2], pch3);
+                pch3 = strtok(NULL, ",");
                 k++;
             }
-            
-            strtok(NULL, ";");
+
+            pch2 = strtok(NULL, ";");
         }
         
-        data.day = tokens1[0];
-        strcpy(data.customerID, &tokens1[1]);
+        data.day = *tokens1[0];
+        strcpy(data.customerID, tokens1[1]);
         
 
     }

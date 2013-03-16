@@ -10,6 +10,7 @@
 		00AB0F6E16EF99DF004F95C0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F6D16EF99DF004F95C0 /* main.c */; };
 		00AB0F7016EF99DF004F95C0 /* SuperMarket.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */; };
 		00AB0F8416EFA6DF004F95C0 /* FileOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F8316EFA6DF004F95C0 /* FileOperations.c */; };
+		00B5256516F51E7D0033D7C6 /* Points.c in Sources */ = {isa = PBXBuildFile; fileRef = 00B5256416F51E7D0033D7C6 /* Points.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SuperMarket.1; sourceTree = "<group>"; };
 		00AB0F8216EFA6D3004F95C0 /* FileOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileOperations.h; sourceTree = "<group>"; };
 		00AB0F8316EFA6DF004F95C0 /* FileOperations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FileOperations.c; sourceTree = "<group>"; };
+		00B5256416F51E7D0033D7C6 /* Points.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Points.c; sourceTree = "<group>"; };
+		00B5256616F51E8D0033D7C6 /* Points.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Points.h; sourceTree = "<group>"; };
 		00EF027E16F08F9400F81F81 /* file1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file1.txt; sourceTree = "<group>"; };
 		00EF027F16F08F9400F81F81 /* file2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file2.txt; sourceTree = "<group>"; };
 		00EF028016F08F9400F81F81 /* file3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file3.txt; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				00AB0F8316EFA6DF004F95C0 /* FileOperations.c */,
+				00B5256416F51E7D0033D7C6 /* Points.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				00AB0F8216EFA6D3004F95C0 /* FileOperations.h */,
+				00B5256616F51E8D0033D7C6 /* Points.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			files = (
 				00AB0F6E16EF99DF004F95C0 /* main.c in Sources */,
 				00AB0F8416EFA6DF004F95C0 /* FileOperations.c in Sources */,
+				00B5256516F51E7D0033D7C6 /* Points.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

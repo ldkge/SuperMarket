@@ -14,12 +14,9 @@
 
 int main(int argc, const char * argv[])
 {
-    CustomerData outData;
-    MultiplierData multData[50];
+    PriceData outData;
     
-    outData = readCustomerFile("file1.txt");
-
-    readCategoriesFile("file2.txt", multData);
+    outData = readPricesFile("file3.txt");
     
     return 0;
 }

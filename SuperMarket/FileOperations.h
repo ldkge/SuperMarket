@@ -22,16 +22,32 @@ struct customerData {
 
 struct multiplierData {
     char category;
-    int multiplier;
+    double multiplier;
     char *products[50];
+};
+
+struct day {
+    char productName[3];
+    int price;
+};
+
+struct priceData {
+    struct day Monday[50];
+    struct day Tuesday[50];
+    struct day Wednesday[50];
+    struct day Thursday[50];
+    struct day Friday[50];
+    struct day Saturday[50];
+    struct day Sunday[50];
 };
 
 typedef struct customerData CustomerData;
 typedef struct multiplierData MultiplierData;
+typedef struct priceData PriceData;
 
 CustomerData readCustomerFile(char []);
 void readCategoriesFile(char [], MultiplierData []);
-void readPricesFile();
+PriceData readPricesFile(char []);
 
 
 

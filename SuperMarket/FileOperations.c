@@ -151,70 +151,76 @@ PriceData readPricesFile(char fileName[])
     char *str;
     int i = 0;
     int j = 0;
+    int mon = 0, tue = 0, wed = 0, thu = 0, fri = 0, sat = 0, sun = 0;
     
     file = fopen(fileName, "r");
     
+    
+    
     if (file != NULL) {
-        check = fgets(output, sizeof(output), file);
-        
-        pch = strtok(output, " \t");
-        
-        while (pch != NULL) {
-            str = strstr(pch, "\r\n");
-            if (str != NULL) {
-                str[0] = '\0';
+        do {
+            check = fgets(output, sizeof(output), file);
+            
+            pch = strtok(output, " \t");
+            
+            while (pch != NULL) {
+                str = strstr(pch, "\r\n");
+                if (str != NULL) {
+                    str[0] = '\0';
+                }
+                
+                token[i] = pch;
+                
+                if (i > 1) {
+                    if (atoi(token[i]) == 1)
+                    {
+                        data.Monday[mon].price = (atoi(token[1]));
+                        strcpy(data.Monday[mon++].productName, token[0]);
+                    }
+                    
+                    if (atoi(token[i]) == 2)
+                    {
+                        data.Tuesday[tue].price = (atoi(token[1]));
+                        strcpy(data.Tuesday[tue++].productName, token[0]);
+                    }
+                    
+                    if (atoi(token[i]) == 3)
+                    {
+                        data.Wednesday[wed].price = (atoi(token[1]));
+                        strcpy(data.Wednesday[wed++].productName, token[0]);
+                    }
+                    
+                    if (atoi(token[i]) == 4)
+                    {
+                        data.Thursday[thu].price = (atoi(token[1]));
+                        strcpy(data.Thursday[thu++].productName, token[0]);
+                    }
+                    
+                    if (atoi(token[i]) == 5)
+                    {
+                        data.Friday[fri].price = (atoi(token[1]));
+                        strcpy(data.Friday[fri++].productName, token[0]);
+                    }
+                    
+                    if (atoi(token[i]) == 6)
+                    {
+                        data.Saturday[sat].price = (atoi(token[1]));
+                        strcpy(data.Saturday[sat++].productName, token[0]);
+                    }
+                    
+                    if (atoi(token[i]) == 7)
+                    {
+                        data.Sunday[sun].price = (atoi(token[1]));
+                        strcpy(data.Sunday[sun++].productName, token[0]);
+                    }
+                }
+                
+                i++;
+                pch = strtok(NULL, " \t");
             }
             
-            token[i++] = pch;
-            
-            pch = strtok(NULL, " \t");
-        }
-        
-        for (i = 2; token[i] != NULL; i++) {
-            if (atoi(token[i]) == 1)
-            {
-                data.Monday[j].price = (atoi(token[1]));
-                strcpy(data.Monday[j].productName, token[0]);
-            }
-            
-            if (atoi(token[i]) == 2)
-            {
-                data.Tuesday[j].price = (atoi(token[1]));
-                strcpy(data.Tuesday[j].productName, token[0]);
-            }
-            
-            if (atoi(token[i]) == 3)
-            {
-                data.Wednesday[j].price = (atoi(token[1]));
-                strcpy(data.Wednesday[j].productName, token[0]);
-            }
-            
-            if (atoi(token[i]) == 4)
-            {
-                data.Thursday[j].price = (atoi(token[1]));
-                strcpy(data.Thursday[j].productName, token[0]);
-            }
-            
-            if (atoi(token[i]) == 5)
-            {
-                data.Friday[j].price = (atoi(token[1]));
-                strcpy(data.Friday[j].productName, token[0]);
-            }
-            
-            if (atoi(token[i]) == 6)
-            {
-                data.Saturday[j].price = (atoi(token[1]));
-                strcpy(data.Saturday[j].productName, token[0]);
-            }
-            
-            if (atoi(token[i]) == 7)
-            {
-                data.Sunday[j].price = (atoi(token[1]));
-                strcpy(data.Sunday[j].productName, token[0]);
-            }
-        }
-        
-        j++;
+            j++;
+        } while (check != NULL);
         
     }
     

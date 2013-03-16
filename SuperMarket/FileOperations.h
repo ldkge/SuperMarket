@@ -21,15 +21,16 @@ struct customerData {
 };
 
 struct multiplierData {
+    char category;
     int multiplier;
-    char products[50];
+    char *products[50];
 };
 
 typedef struct customerData CustomerData;
 typedef struct multiplierData MultiplierData;
 
 CustomerData readCustomerFile(char []);
-MultiplierData readCategoriesFile(char []);
+void readCategoriesFile(char [], MultiplierData []);
 void readPricesFile();
 
 

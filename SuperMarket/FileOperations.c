@@ -58,7 +58,7 @@ CustomerData readCustomerFile(char fileName[])
             }
             
             if (j == 0) {
-                data.day = ((int)*pch-48);
+                data.day = ((int)*pch - 48);
             }
             else if (j == 1) {
                 strcpy(data.customerID, pch);
@@ -87,21 +87,53 @@ CustomerData readCustomerFile(char fileName[])
     return data;
 }
 
-MultiplierData readCategoriesFile(char fileName[])
+void readCategoriesFile(char fileName[], MultiplierData data[])
 {
-    MultiplierData data[50];
     FILE *file = NULL;
     char output[N] = {0};
     char *check = NULL;
+    char *pch;
+    char *str;
+    int i = 0;
+    int j = 0;
+    int k = 0;
     
     file = fopen(fileName, "r");
     
     if (file != NULL) {
         do {
             check = fgets(output, sizeof(output), file);
+            
+            pch = strtok(output, ":,");
+            
+            while (pch != NULL) {
+                
+                str = strstr(pch, "\r\n");
+                if (str != NULL) {
+                    str[0] = '\0';
+                }
+                
+                if (j == 0) {
+                    data[i].category = *pch;
+                }
+                else if (j == 1) {
+                    data[i].multiplier = ((int)*pch - 48);
+                }
+                else {
+                    data[i].products[k++] = pch;
+                }
+                
+                pch = strtok(NULL, ":,");
+                
+                j++;
+                
+            }
+            
+            i++;
+            j = 0;
+            k = 0;
+            
         } while (check != NULL);
-        
-        
     }
     
     fclose(file);

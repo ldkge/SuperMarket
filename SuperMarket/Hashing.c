@@ -75,8 +75,9 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
     for (i = 0; strcmp("done", cstm_data.customerID) != 0; i++) {
         hash = MurmurHash2(cstm_data.customerID, 11, 34);
         
-        if (table[hash%11].customerID != NULL) {
-            <#statements#>
+        if (table[hash%S].customerID != NULL) {
+            
+            table[(hash%11+1)%11] = cstm_data;
         }
         
         table[hash%S] = cstm_data;

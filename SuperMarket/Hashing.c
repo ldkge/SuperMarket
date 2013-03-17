@@ -12,7 +12,7 @@
 #include "FileOperations.h"
 #include "Points.h"
 
-#define S 11
+#define S 300000
 
 unsigned int MurmurHash2(const void * key, int len, unsigned int seed)
 {
@@ -69,20 +69,23 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
 {
     CustomerData cstm_data;
     int i = 0;
+    int colision = 0;
     unsigned int hash;
     
-    cstm_data = readCustomerFile("file1.txt", pr_data, mult_data);
+    cstm_data = readCustomerFile("arxeio1.txt", pr_data, mult_data);
     for (i = 0; strcmp("done", cstm_data.customerID) != 0; i++) {
-        hash = MurmurHash2(cstm_data.customerID, 11, 34);
+        hash = MurmurHash2(cstm_data.customerID, S, 34523452);
         
-        if (table[hash%S].customerID != NULL) {
+        if (strcmp("", table[hash%S].customerID) != 0) {
             
-            table[(hash%11+1)%11] = cstm_data;
+            table[(hash%S+1)%S] = cstm_data;
+            colision++;
         }
         
         table[hash%S] = cstm_data;
         
-        cstm_data = readCustomerFile("file1.txt", pr_data, mult_data);
+        cstm_data = readCustomerFile("arxeio1.txt", pr_data, mult_data);
         
+        printf("%d\t%d\n", i, colision);
     }
 }

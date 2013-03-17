@@ -30,13 +30,13 @@ struct day {
 };
 
 struct priceData {
-    struct day Monday[50];
-    struct day Tuesday[50];
-    struct day Wednesday[50];
-    struct day Thursday[50];
-    struct day Friday[50];
-    struct day Saturday[50];
-    struct day Sunday[50];
+    struct day Monday[150];
+    struct day Tuesday[150];
+    struct day Wednesday[150];
+    struct day Thursday[150];
+    struct day Friday[150];
+    struct day Saturday[150];
+    struct day Sunday[150];
 };
 
 typedef struct customerData CustomerData;

@@ -13,7 +13,7 @@
 #include "FileOperations.h"
 #include "Points.h"
 
-#define N 100
+#define N 500
 
 CustomerData readCustomerFile(char fileName[], PriceData pr_data, MultiplierData mult_data[])
 {
@@ -148,12 +148,13 @@ PriceData readPricesFile(char fileName[])
     FILE *file = NULL;
     char output[N] = {0};
     char *check = NULL;
-    char *token[N] = {0};
     char *pch;
     char *str;
     int i = 0;
     int j = 0;
     int mon = 0, tue = 0, wed = 0, thu = 0, fri = 0, sat = 0, sun = 0;
+    char productName[16];
+    int price;
     
     file = fopen(fileName, "r");
     
@@ -171,49 +172,53 @@ PriceData readPricesFile(char fileName[])
                     str[0] = '\0';
                 }
                 
-                token[i] = pch;
-                
-                if (i > 1) {
-                    if (atoi(token[i]) == 1)
+                if (i == 0) {
+                    strcpy(productName, pch);
+                }
+                else if (i == 1) {
+                    price = atoi(pch);
+                }
+                else {
+                    if (atoi(pch) == 1)
                     {
-                        data.Monday[mon].price = (atoi(token[1]));
-                        strcpy(data.Monday[mon++].productName, token[0]);
+                        data.Monday[mon].price = price;
+                        strcpy(data.Monday[mon++].productName, productName);
                     }
                     
-                    if (atoi(token[i]) == 2)
+                    if (atoi(pch) == 2)
                     {
-                        data.Tuesday[tue].price = (atoi(token[1]));
-                        strcpy(data.Tuesday[tue++].productName, token[0]);
+                        data.Tuesday[tue].price = price;
+                        strcpy(data.Tuesday[tue++].productName, productName);
                     }
                     
-                    if (atoi(token[i]) == 3)
+                    if (atoi(pch) == 3)
                     {
-                        data.Wednesday[wed].price = (atoi(token[1]));
-                        strcpy(data.Wednesday[wed++].productName, token[0]);
+                        data.Wednesday[wed].price = price;
+                        strcpy(data.Wednesday[wed++].productName, productName);
                     }
                     
-                    if (atoi(token[i]) == 4)
+                    if (atoi(pch) == 4)
                     {
-                        data.Thursday[thu].price = (atoi(token[1]));
-                        strcpy(data.Thursday[thu++].productName, token[0]);
+                        data.Thursday[thu].price = price;
+                        strcpy(data.Thursday[thu++].productName, productName);
                     }
                     
-                    if (atoi(token[i]) == 5)
+                    if (atoi(pch) == 5)
                     {
-                        data.Friday[fri].price = (atoi(token[1]));
-                        strcpy(data.Friday[fri++].productName, token[0]);
+                        data.Friday[fri].price = price;
+                        strcpy(data.Friday[fri++].productName, productName);
                     }
                     
-                    if (atoi(token[i]) == 6)
+                    if (atoi(pch) == 6)
                     {
-                        data.Saturday[sat].price = (atoi(token[1]));
-                        strcpy(data.Saturday[sat++].productName, token[0]);
+                        data.Saturday[sat].price = price;
+                        strcpy(data.Saturday[sat++].productName, productName);
                     }
                     
-                    if (atoi(token[i]) == 7)
+                    if (atoi(pch) == 7)
                     {
-                        data.Sunday[sun].price = (atoi(token[1]));
-                        strcpy(data.Sunday[sun++].productName, token[0]);
+                        data.Sunday[sun].price = price;
+                        strcpy(data.Sunday[sun++].productName, productName);
                     }
                 }
                 
@@ -221,6 +226,7 @@ PriceData readPricesFile(char fileName[])
                 pch = strtok(NULL, " \t");
             }
             
+            i = 0;
             j++;
         } while (check != NULL);
         

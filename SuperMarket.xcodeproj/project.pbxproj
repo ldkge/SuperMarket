@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		001EE9EC16F67BBA0031188D /* arxeio2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 001EE9E916F67B8C0031188D /* arxeio2.txt */; };
-		001EE9ED16F67BBA0031188D /* arxeio1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 001EE9EA16F67B8C0031188D /* arxeio1.txt */; };
-		001EE9EE16F67BBA0031188D /* arxeio3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 001EE9EB16F67B8C0031188D /* arxeio3.txt */; };
-		001EE9EF16F67BBA0031188D /* file1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027E16F08F9400F81F81 /* file1.txt */; };
-		001EE9F016F67BBA0031188D /* file2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027F16F08F9400F81F81 /* file2.txt */; };
-		001EE9F116F67BBA0031188D /* file3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF028016F08F9400F81F81 /* file3.txt */; };
 		0074676D16F5EFB800EACA33 /* Hashing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0074676C16F5EFB800EACA33 /* Hashing.c */; };
 		00AB0F6E16EF99DF004F95C0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F6D16EF99DF004F95C0 /* main.c */; };
 		00AB0F7016EF99DF004F95C0 /* SuperMarket.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */; };
@@ -21,21 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		001EE9E816F67B6A0031188D /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				001EE9EC16F67BBA0031188D /* arxeio2.txt in CopyFiles */,
-				001EE9ED16F67BBA0031188D /* arxeio1.txt in CopyFiles */,
-				001EE9EE16F67BBA0031188D /* arxeio3.txt in CopyFiles */,
-				001EE9EF16F67BBA0031188D /* file1.txt in CopyFiles */,
-				001EE9F016F67BBA0031188D /* file2.txt in CopyFiles */,
-				001EE9F116F67BBA0031188D /* file3.txt in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		00AB0F6816EF99DF004F95C0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,11 +28,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		001EE9E916F67B8C0031188D /* arxeio2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio2.txt; sourceTree = "<group>"; };
-		001EE9EA16F67B8C0031188D /* arxeio1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio1.txt; sourceTree = "<group>"; };
-		001EE9EB16F67B8C0031188D /* arxeio3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio3.txt; sourceTree = "<group>"; };
 		0074676C16F5EFB800EACA33 /* Hashing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Hashing.c; sourceTree = "<group>"; };
 		0074676E16F5EFC600EACA33 /* Hashing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hashing.h; sourceTree = "<group>"; };
+		0079399816F681F9003910C2 /* arxeio1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio1.txt; sourceTree = "<group>"; };
+		0079399916F681F9003910C2 /* arxeio2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio2.txt; sourceTree = "<group>"; };
+		0079399A16F681F9003910C2 /* arxeio3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio3.txt; sourceTree = "<group>"; };
 		00AB0F6A16EF99DF004F95C0 /* SuperMarket */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SuperMarket; sourceTree = BUILT_PRODUCTS_DIR; };
 		00AB0F6D16EF99DF004F95C0 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SuperMarket.1; sourceTree = "<group>"; };
@@ -108,9 +87,9 @@
 		00AB0F7716EF9C55004F95C0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				001EE9E916F67B8C0031188D /* arxeio2.txt */,
-				001EE9EA16F67B8C0031188D /* arxeio1.txt */,
-				001EE9EB16F67B8C0031188D /* arxeio3.txt */,
+				0079399816F681F9003910C2 /* arxeio1.txt */,
+				0079399916F681F9003910C2 /* arxeio2.txt */,
+				0079399A16F681F9003910C2 /* arxeio3.txt */,
 				00EF027E16F08F9400F81F81 /* file1.txt */,
 				00EF027F16F08F9400F81F81 /* file2.txt */,
 				00EF028016F08F9400F81F81 /* file3.txt */,
@@ -148,7 +127,6 @@
 				00AB0F6616EF99DF004F95C0 /* Sources */,
 				00AB0F6716EF99DF004F95C0 /* Frameworks */,
 				00AB0F6816EF99DF004F95C0 /* CopyFiles */,
-				001EE9E816F67B6A0031188D /* CopyFiles */,
 			);
 			buildRules = (
 			);

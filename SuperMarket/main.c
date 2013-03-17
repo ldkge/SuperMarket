@@ -9,14 +9,25 @@
 #include <stdio.h>
 #include <string.h>
 #include "FileOperations.h"
+#include "Points.h"
 
 #define N 100
 
 int main(int argc, const char * argv[])
 {
-    PriceData outData;
+    PriceData pr_data;
+    MultiplierData mult_data[N];
+    int price;
+    double mult;
     
-    outData = readPricesFile("file3.txt");
+    readCategoriesFile("file2.txt", mult_data);
+    
+    mult = findMultiplier("P7", mult_data);
+    
+    
+    pr_data = readPricesFile("file3.txt");
+    
+    price = calcPrice("P6", 2, 1, pr_data);
     
     return 0;
 }

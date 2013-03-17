@@ -97,7 +97,7 @@ void readCategoriesFile(char fileName[], MultiplierData data[])
     char *str;
     int i = 0;
     int j = 0;
-    int k = 0;
+    double mult;
     
     file = fopen(fileName, "r");
     
@@ -114,14 +114,12 @@ void readCategoriesFile(char fileName[], MultiplierData data[])
                     str[0] = '\0';
                 }
                 
-                if (j == 0) {
-                    data[i].category = *pch;
+                if (j == 1) {
+                    mult = (atof(pch));
                 }
-                else if (j == 1) {
-                    data[i].multiplier = (atof(pch));
-                }
-                else {
-                    data[i].products[k++] = pch;
+                if (j != 0 && j!=1) {
+                    data[i].multiplier = mult;
+                    strcpy(data[i++].product, pch);
                 }
                 
                 pch = strtok(NULL, ":,");
@@ -130,9 +128,7 @@ void readCategoriesFile(char fileName[], MultiplierData data[])
                 
             }
             
-            i++;
             j = 0;
-            k = 0;
             
         } while (check != NULL);
     }

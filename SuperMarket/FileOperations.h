@@ -21,9 +21,8 @@ struct customerData {
 };
 
 struct multiplierData {
-    char category;
     double multiplier;
-    char *products[50];
+    char product[3];
 };
 
 struct day {

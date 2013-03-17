@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0074676D16F5EFB800EACA33 /* Hashing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0074676C16F5EFB800EACA33 /* Hashing.c */; };
 		00AB0F6E16EF99DF004F95C0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F6D16EF99DF004F95C0 /* main.c */; };
 		00AB0F7016EF99DF004F95C0 /* SuperMarket.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */; };
 		00AB0F8416EFA6DF004F95C0 /* FileOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F8316EFA6DF004F95C0 /* FileOperations.c */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0074676C16F5EFB800EACA33 /* Hashing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Hashing.c; sourceTree = "<group>"; };
+		0074676E16F5EFC600EACA33 /* Hashing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hashing.h; sourceTree = "<group>"; };
 		00AB0F6A16EF99DF004F95C0 /* SuperMarket */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SuperMarket; sourceTree = BUILT_PRODUCTS_DIR; };
 		00AB0F6D16EF99DF004F95C0 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SuperMarket.1; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 			children = (
 				00AB0F8316EFA6DF004F95C0 /* FileOperations.c */,
 				00B5256416F51E7D0033D7C6 /* Points.c */,
+				0074676C16F5EFB800EACA33 /* Hashing.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -102,6 +106,7 @@
 			children = (
 				00AB0F8216EFA6D3004F95C0 /* FileOperations.h */,
 				00B5256616F51E8D0033D7C6 /* Points.h */,
+				0074676E16F5EFC600EACA33 /* Hashing.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				00AB0F6E16EF99DF004F95C0 /* main.c in Sources */,
 				00AB0F8416EFA6DF004F95C0 /* FileOperations.c in Sources */,
 				00B5256516F51E7D0033D7C6 /* Points.c in Sources */,
+				0074676D16F5EFB800EACA33 /* Hashing.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

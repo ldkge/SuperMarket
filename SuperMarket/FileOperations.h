@@ -15,9 +15,8 @@ struct Products {
 };
 
 struct customerData {
-    int day;
     char customerID[16];
-    struct Products products[50];
+    double points;
 };
 
 struct multiplierData {
@@ -44,7 +43,7 @@ typedef struct customerData CustomerData;
 typedef struct multiplierData MultiplierData;
 typedef struct priceData PriceData;
 
-CustomerData readCustomerFile(char []);
+CustomerData readCustomerFile(char [], PriceData , MultiplierData []);
 void readCategoriesFile(char [], MultiplierData []);
 PriceData readPricesFile(char []);
 

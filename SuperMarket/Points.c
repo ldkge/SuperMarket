@@ -35,7 +35,7 @@ int calcPrice(char productName[], int day, int quantity, PriceData data)
                 price = quantity * data.Monday[i_max].price;
             }
             else {
-                price = 10;
+                price = 10 * quantity;
             }
             
         }
@@ -56,7 +56,7 @@ int calcPrice(char productName[], int day, int quantity, PriceData data)
                 price = quantity * data.Tuesday[i_max].price;
             }
             else {
-                price = 10;
+                price = 10 * quantity;
             }
             
         }
@@ -77,7 +77,7 @@ int calcPrice(char productName[], int day, int quantity, PriceData data)
                 price = quantity * data.Wednesday[i_max].price;
             }
             else {
-                price = 10;
+                price = 10 * quantity;
             }
             
         }
@@ -98,7 +98,7 @@ int calcPrice(char productName[], int day, int quantity, PriceData data)
                 price = quantity * data.Thursday[i_max].price;
             }
             else {
-                price = 10;
+                price = 10 * quantity;
             }
             
         }
@@ -119,7 +119,7 @@ int calcPrice(char productName[], int day, int quantity, PriceData data)
                 price = quantity * data.Friday[i_max].price;
             }
             else {
-                price = 10;
+                price = 10 * quantity;
             }
             
         }
@@ -140,7 +140,7 @@ int calcPrice(char productName[], int day, int quantity, PriceData data)
                 price = quantity * data.Saturday[i_max].price;
             }
             else {
-                price = 10;
+                price = 10 * quantity;
             }
             
         }
@@ -161,13 +161,13 @@ int calcPrice(char productName[], int day, int quantity, PriceData data)
                 price = quantity * data.Sunday[i_max].price;
             }
             else {
-                price = 10;
+                price = 10 * quantity;
             }
             
         }
             break;
         default:
-            price = 10;
+            price = 10 * quantity;
             break;
     }
     
@@ -182,6 +182,7 @@ double findMultiplier(char productName[], MultiplierData data[])
     for (i = 0; strchr(data[i].product, (int)'P') != NULL; i++) {
         if (strcmp(productName, data[i].product) == 0) {
             multiplier = data[i].multiplier;
+            break;
         }
     }
     

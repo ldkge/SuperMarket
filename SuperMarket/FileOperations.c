@@ -11,10 +11,11 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include "FileOperations.h"
+#include "Points.h"
 
 #define N 100
 
-CustomerData readCustomerFile(char fileName[])
+CustomerData readCustomerFile(char fileName[], PriceData pr_data, MultiplierData mult_data[])
 {
     CustomerData data;
     FILE *file = NULL;
@@ -23,8 +24,10 @@ CustomerData readCustomerFile(char fileName[])
     char *pch;
     static int i = 1;
     int j = 0;
-    int k = 0;
     int l = 0;
+    int day;
+    char productName[16] = {0};
+    int quantity = 0;
     
     if (fileName != NULL) {
         file = fopen(fileName, "r");
@@ -49,6 +52,8 @@ CustomerData readCustomerFile(char fileName[])
         
         i++;
         
+        data.points = 0;
+        
         pch = strtok(output, " ,;");
         
         // Split each line and store data
@@ -59,17 +64,18 @@ CustomerData readCustomerFile(char fileName[])
             }
             
             if (j == 0) {
-                data.day = (atoi(pch));
+                day = (atoi(pch));
             }
             else if (j == 1) {
                 strcpy(data.customerID, pch);
             }
             else {
                 if ((j%2) == 0) {
-                    strcpy(data.products[k].productName, pch);
+                    strcpy(productName, pch);
                 }
                 if ((j%2) == 1) {
-                    data.products[k++].quantity = *pch;
+                    quantity = atoi(pch);
+                    data.points += calcPoints(productName, day, quantity, pr_data, mult_data);
                 }
             }
             

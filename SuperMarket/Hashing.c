@@ -74,7 +74,7 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
     
     cstm_data = readCustomerFile("arxeio1.txt", pr_data, mult_data);
     for (i = 0; strcmp("done", cstm_data.customerID) != 0; i++) {
-        hash = MurmurHash2(cstm_data.customerID, S, 34523452);
+        hash = MurmurHash2(cstm_data.customerID, 15, 34);
         
         if (strcmp("", table[hash%S].customerID) != 0) {
             
@@ -86,6 +86,8 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
         
         cstm_data = readCustomerFile("arxeio1.txt", pr_data, mult_data);
         
-        printf("%d\t%d\n", i, colision);
+        
     }
+    
+    printf("%d\t%d\n", i, colision);
 }

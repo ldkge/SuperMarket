@@ -190,6 +190,176 @@ double findMultiplier(char productName[], MultiplierData data[])
 }
 
 double calcPoints(char productName[], int day, int quantity, PriceData pr_data, MultiplierData mult_data[])
-{    
-    return (calcPrice(productName, day, quantity, pr_data) * findMultiplier(productName, mult_data));
+{
+    double multiplier = 0.5;
+    int i = 0;
+    int check;
+    int pr_temp = 0, i_max = -1;
+    int price = 0;
+    
+    for (i = 0; strchr(mult_data[i].product, (int)'P') != NULL; i++) {
+        if (strcmp(productName, mult_data[i].product) == 0) {
+            multiplier = mult_data[i].multiplier;
+            break;
+        }
+    }
+    
+    i = 0;
+
+    
+    switch (day) {
+        case 1: {
+            do {
+                check = strcmp(productName, pr_data.Monday[i++].productName);
+                
+                if (check == 0) {
+                    if (pr_data.Monday[i-1].price > pr_temp) {
+                        i_max = i - 1;
+                    }
+                }
+                
+            } while (strchr(pr_data.Monday[i].productName, (int)'P') != NULL);
+            
+            if (i_max != -1 && pr_data.Monday[i_max].price != 0) {
+                price = quantity * pr_data.Monday[i_max].price;
+            }
+            else {
+                price = 10 * quantity;
+            }
+            
+        }
+            break;
+        case 2: {
+            do {
+                check = strcmp(productName, pr_data.Tuesday[i++].productName);
+                
+                if (check == 0) {
+                    if (pr_data.Tuesday[i-1].price > pr_temp) {
+                        i_max = i - 1;
+                    }
+                }
+                
+            } while (strchr(pr_data.Monday[i].productName, (int)'P') != NULL);
+            
+            if (i_max != -1 && pr_data.Tuesday[i_max].price != 0) {
+                price = quantity * pr_data.Tuesday[i_max].price;
+            }
+            else {
+                price = 10 * quantity;
+            }
+            
+        }
+            break;
+        case 3: {
+            do {
+                check = strcmp(productName, pr_data.Wednesday[i++].productName);
+                
+                if (check == 0) {
+                    if (pr_data.Wednesday[i-1].price > pr_temp) {
+                        i_max = i - 1;
+                    }
+                }
+                
+            } while (strchr(pr_data.Wednesday[i].productName, (int)'P') != NULL);
+            
+            if (i_max != -1 && pr_data.Wednesday[i_max].price != 0) {
+                price = quantity * pr_data.Wednesday[i_max].price;
+            }
+            else {
+                price = 10 * quantity;
+            }
+            
+        }
+            break;
+        case 4: {
+            do {
+                check = strcmp(productName, pr_data.Thursday[i++].productName);
+                
+                if (check == 0) {
+                    if (pr_data.Thursday[i-1].price > pr_temp) {
+                        i_max = i - 1;
+                    }
+                }
+                
+            } while (strchr(pr_data.Thursday[i].productName, (int)'P') != NULL);
+            
+            if (i_max != -1 && pr_data.Thursday[i_max].price != 0) {
+                price = quantity * pr_data.Thursday[i_max].price;
+            }
+            else {
+                price = 10 * quantity;
+            }
+            
+        }
+            break;
+        case 5: {
+            do {
+                check = strcmp(productName, pr_data.Friday[i++].productName);
+                
+                if (check == 0) {
+                    if (pr_data.Friday[i-1].price > pr_temp) {
+                        i_max = i - 1;
+                    }
+                }
+                
+            } while (strchr(pr_data.Friday[i].productName, (int)'P') != NULL);
+            
+            if (i_max != -1 && pr_data.Friday[i_max].price != 0) {
+                price = quantity * pr_data.Friday[i_max].price;
+            }
+            else {
+                price = 10 * quantity;
+            }
+            
+        }
+            break;
+        case 6: {
+            do {
+                check = strcmp(productName, pr_data.Saturday[i++].productName);
+                
+                if (check == 0) {
+                    if (pr_data.Saturday[i-1].price > pr_temp) {
+                        i_max = i - 1;
+                    }
+                }
+                
+            } while (strchr(pr_data.Saturday[i].productName, (int)'P') != NULL);
+            
+            if (i_max != -1 && pr_data.Saturday[i_max].price != 0) {
+                price = quantity * pr_data.Saturday[i_max].price;
+            }
+            else {
+                price = 10 * quantity;
+            }
+            
+        }
+            break;
+        case 7: {
+            do {
+                check = strcmp(productName, pr_data.Sunday[i++].productName);
+                
+                if (check == 0) {
+                    if (pr_data.Sunday[i-1].price > pr_temp) {
+                        i_max = i - 1;
+                    }
+                }
+                
+            } while (strchr(pr_data.Sunday[i].productName, (int)'P') != NULL);
+            
+            if (i_max != -1 && pr_data.Sunday[i_max].price != 0) {
+                price = quantity * pr_data.Sunday[i_max].price;
+            }
+            else {
+                price = 10 * quantity;
+            }
+            
+        }
+            break;
+        default:
+            price = 10 * quantity;
+            break;
+    }
+    
+    
+    return price * multiplier;
 }

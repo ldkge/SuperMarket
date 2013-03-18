@@ -19,7 +19,7 @@ int main(int argc, const char * argv[])
 {
     PriceData pr_data;
     MultiplierData mult_data[N];
-    HashTable table[S] = {0};
+    HashTable table[S];
     
     readCategoriesFile("arxeio2.txt", mult_data);
     pr_data = readPricesFile("arxeio3.txt");

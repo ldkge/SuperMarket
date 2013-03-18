@@ -15,81 +15,51 @@
 
 #define N 500
 
-CustomerData readCustomerFile(char fileName[], PriceData pr_data, MultiplierData mult_data[])
+CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData mult_data[])
 {
     CustomerData data;
-    FILE *file = NULL;
-    char *check = NULL;
-    char output[N] = {0};
     char *pch;
     static int i = 1;
     int j = 0;
-    int l = 0;
     int day;
     char productName[16] = {0};
     int quantity = 0;
     
-    if (fileName != NULL) {
-        file = fopen(fileName, "r");
-    }
-    else {
-        i = 1;
+    i++;
+    
+    data.points = 0;
+    
+    
+    day = (atoi(strtok(output, " ,;\r\n")));
+    
+    strcpy(data.customerID, strtok(NULL, " ,;\r\n"));
+    
+    pch = strtok(NULL, " ,;\r\n");
+    
+    while (pch != NULL) {
+        
+        
+        strcpy(productName, pch);
+        
+        pch = strtok(NULL, " ,;\r\n");
+        quantity = atoi(pch);
+        data.points += calcPoints(productName, day, quantity, pr_data, mult_data);
+        pch = strtok(NULL, " ,;\r\n");
+        
     }
     
-    if (file != NULL) {
-        
-        // Find the latest line in data table
-        
-        do {
-            check = fgets(output, sizeof(output), file);
-            l++;
-        } while (check != NULL && l < i);
-        
-        if (check == NULL) {
-            strcpy(data.customerID, "done");
-            return data;
-        }
-        
-        i++;
-        
-        data.points = 0;
-        
-        pch = strtok(output, " ,;");
-        
-        // Split each line and store data
-        
-        while (pch != NULL) {
-            if (!strcmp(pch, "\r\n")) {
-                break;
-            }
-            
-            if (j == 0) {
-                day = (atoi(pch));
-            }
-            else if (j == 1) {
-                strcpy(data.customerID, pch);
-            }
-            else {
-                if ((j%2) == 0) {
-                    strcpy(productName, pch);
-                }
-                if ((j%2) == 1) {
-                    quantity = atoi(pch);
-                    data.points += calcPoints(productName, day, quantity, pr_data, mult_data);
-                }
-            }
-            
-            pch = strtok(NULL, " ,;");
-            
-            j++;
-        }
+    j++;
+    
+    
+    j = 0;
+    
+    
 
-        j = 0;
-        
-    }
+    
+        // Find the latest line in data table
     
     
-    fclose(file);
+
     
     return data;
 }

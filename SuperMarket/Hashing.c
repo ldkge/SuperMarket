@@ -8,11 +8,12 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "Hashing.h"
 #include "FileOperations.h"
 #include "Points.h"
 
-#define S 300000
+#define S 340000
 
 unsigned int MurmurHash2(const void * key, int len, unsigned int seed)
 {
@@ -69,14 +70,26 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
 {
     CustomerData cstm_data;
     int i = 0;
+    FILE *file = NULL;
     int colision = 0;
     unsigned int hash;
+    char* check;
+    char output[500] = {0};
     
-    cstm_data = readCustomerFile("arxeio1.txt", pr_data, mult_data);
-    for (i = 0; strcmp("done", cstm_data.customerID) != 0; i++) {
-        hash = MurmurHash2(cstm_data.customerID, 15, 34);
+    file = fopen("arxeio1.txt", "r");
+    
+    clock_t start = clock();
+    
+    check = fgets(output, sizeof(output), file);
+    
+    for (i = 0; check != NULL; i++) {
+        hash = MurmurHash2(cstm_data.customerID, 15, 2);
         
         if (strcmp("", table[hash%S].customerID) != 0) {
+            
+            if (strcmp(cstm_data.customerID, table[hash%S].customerID) == 0) {
+                table[hash%S].points += cstm_data.points;
+            }
             
             table[(hash%S+1)%S] = cstm_data;
             colision++;
@@ -84,10 +97,15 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
         
         table[hash%S] = cstm_data;
         
-        cstm_data = readCustomerFile("arxeio1.txt", pr_data, mult_data);
         
+        cstm_data = readCustomerFile(output, pr_data, mult_data);
+        check = fgets(output, sizeof(output), file);
+        
+        if (i%10000 == 0) {
+            printf("%d\t%d\t%f\t%f\n", i, colision, (float)colision/(float)i, ((double)clock() - start) / CLOCKS_PER_SEC);
+        }
         
     }
     
-    printf("%d\t%d\n", i, colision);
+
 }

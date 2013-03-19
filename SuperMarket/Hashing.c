@@ -80,32 +80,38 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
     
     clock_t start = clock();
     
-    check = fgets(output, sizeof(output), file);
-    
-    for (i = 0; check != NULL; i++) {
-        hash = MurmurHash2(cstm_data.customerID, 15, 2);
-        
-        if (strcmp("", table[hash%S].customerID) != 0) {
-            
-            if (strcmp(cstm_data.customerID, table[hash%S].customerID) == 0) {
-                table[hash%S].points += cstm_data.points;
-            }
-            
-            table[(hash%S+1)%S] = cstm_data;
-            colision++;
-        }
-        
-        table[hash%S] = cstm_data;
-        
-        
-        cstm_data = readCustomerFile(output, pr_data, mult_data);
+    if (file != NULL) {
         check = fgets(output, sizeof(output), file);
         
-        if (i%10000 == 0) {
-            printf("%d\t%d\t%f\t%f\n", i, colision, (float)colision/(float)i, ((double)clock() - start) / CLOCKS_PER_SEC);
+        for (i = 0; check != NULL; i++) {
+            hash = MurmurHash2(cstm_data.customerID, 15, 2);
+            
+            if (strcmp("", table[hash%S].customerID) != 0) {
+                
+                if (strcmp(cstm_data.customerID, table[hash%S].customerID) == 0) {
+                    table[hash%S].points += cstm_data.points;
+                }
+                
+                table[(hash%S+1)%S] = cstm_data;
+                colision++;
+            }
+            
+            table[hash%S] = cstm_data;
+            
+            
+            cstm_data = readCustomerFile(output, pr_data, mult_data);
+            check = fgets(output, sizeof(output), file);
+            
+            if (i%10000 == 0) {
+                printf("%d\t%d\t%f\t%f\n", i, colision, (float)colision/(float)i, ((double)clock() - start) / CLOCKS_PER_SEC);
+            }
+            
         }
-        
     }
+    
+    fclose(file);
+    
+    
     
 
 }

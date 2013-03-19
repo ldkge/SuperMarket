@@ -363,3 +363,4 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
     
     return price * multiplier;
 }
+

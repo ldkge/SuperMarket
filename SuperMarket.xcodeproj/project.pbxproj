@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0072BD0516F8D2B9008AE0DC /* arxeio1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0079399816F681F9003910C2 /* arxeio1.txt */; };
+		0072BD0616F8D2B9008AE0DC /* arxeio2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0079399916F681F9003910C2 /* arxeio2.txt */; };
+		0072BD0716F8D2B9008AE0DC /* arxeio3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0079399A16F681F9003910C2 /* arxeio3.txt */; };
+		0072BD0816F8D2B9008AE0DC /* file1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027E16F08F9400F81F81 /* file1.txt */; };
+		0072BD0916F8D2B9008AE0DC /* file2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027F16F08F9400F81F81 /* file2.txt */; };
+		0072BD0A16F8D2B9008AE0DC /* file3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF028016F08F9400F81F81 /* file3.txt */; };
 		0074676D16F5EFB800EACA33 /* Hashing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0074676C16F5EFB800EACA33 /* Hashing.c */; };
 		00AB0F6E16EF99DF004F95C0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F6D16EF99DF004F95C0 /* main.c */; };
 		00AB0F7016EF99DF004F95C0 /* SuperMarket.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */; };
@@ -15,6 +21,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		0072BD0416F8D2AD008AE0DC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				0072BD0516F8D2B9008AE0DC /* arxeio1.txt in CopyFiles */,
+				0072BD0616F8D2B9008AE0DC /* arxeio2.txt in CopyFiles */,
+				0072BD0716F8D2B9008AE0DC /* arxeio3.txt in CopyFiles */,
+				0072BD0816F8D2B9008AE0DC /* file1.txt in CopyFiles */,
+				0072BD0916F8D2B9008AE0DC /* file2.txt in CopyFiles */,
+				0072BD0A16F8D2B9008AE0DC /* file3.txt in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		00AB0F6816EF99DF004F95C0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,6 +148,7 @@
 				00AB0F6616EF99DF004F95C0 /* Sources */,
 				00AB0F6716EF99DF004F95C0 /* Frameworks */,
 				00AB0F6816EF99DF004F95C0 /* CopyFiles */,
+				0072BD0416F8D2AD008AE0DC /* CopyFiles */,
 			);
 			buildRules = (
 			);

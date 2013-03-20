@@ -8,18 +8,20 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "FileOperations.h"
 #include "Points.h"
 #include "Hashing.h"
+#include "Sorting.h"
 
-#define N 500
-#define S 340000
+#define N 250
+#define S 1000003
 
 int main(int argc, const char * argv[])
 {
     PriceData pr_data;
     MultiplierData mult_data[N];
-    HashTable table[S] = {0};
+    HashTable *table = malloc(S * sizeof(HashTable));
     
     readCategoriesFile("arxeio2.txt", mult_data);
     pr_data = readPricesFile("arxeio3.txt");
@@ -27,6 +29,9 @@ int main(int argc, const char * argv[])
     
     addToHashTable(table, pr_data, mult_data);
     
+    free(table);
+    
     return 0;
 }
+
 

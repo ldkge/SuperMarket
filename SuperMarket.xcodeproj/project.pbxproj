@@ -14,6 +14,7 @@
 		0072BD0916F8D2B9008AE0DC /* file2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027F16F08F9400F81F81 /* file2.txt */; };
 		0072BD0A16F8D2B9008AE0DC /* file3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF028016F08F9400F81F81 /* file3.txt */; };
 		0074676D16F5EFB800EACA33 /* Hashing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0074676C16F5EFB800EACA33 /* Hashing.c */; };
+		0097190C16F9F3E0001E4D27 /* Sorting.c in Sources */ = {isa = PBXBuildFile; fileRef = 0097190B16F9F3E0001E4D27 /* Sorting.c */; };
 		00AB0F6E16EF99DF004F95C0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F6D16EF99DF004F95C0 /* main.c */; };
 		00AB0F7016EF99DF004F95C0 /* SuperMarket.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */; };
 		00AB0F8416EFA6DF004F95C0 /* FileOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F8316EFA6DF004F95C0 /* FileOperations.c */; };
@@ -54,6 +55,8 @@
 		0079399816F681F9003910C2 /* arxeio1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio1.txt; sourceTree = "<group>"; };
 		0079399916F681F9003910C2 /* arxeio2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio2.txt; sourceTree = "<group>"; };
 		0079399A16F681F9003910C2 /* arxeio3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio3.txt; sourceTree = "<group>"; };
+		0097190B16F9F3E0001E4D27 /* Sorting.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Sorting.c; sourceTree = "<group>"; };
+		0097190D16F9F3F2001E4D27 /* Sorting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sorting.h; sourceTree = "<group>"; };
 		00AB0F6A16EF99DF004F95C0 /* SuperMarket */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SuperMarket; sourceTree = BUILT_PRODUCTS_DIR; };
 		00AB0F6D16EF99DF004F95C0 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SuperMarket.1; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 				00AB0F8316EFA6DF004F95C0 /* FileOperations.c */,
 				00B5256416F51E7D0033D7C6 /* Points.c */,
 				0074676C16F5EFB800EACA33 /* Hashing.c */,
+				0097190B16F9F3E0001E4D27 /* Sorting.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -134,6 +138,7 @@
 				00AB0F8216EFA6D3004F95C0 /* FileOperations.h */,
 				00B5256616F51E8D0033D7C6 /* Points.h */,
 				0074676E16F5EFC600EACA33 /* Hashing.h */,
+				0097190D16F9F3F2001E4D27 /* Sorting.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				00AB0F8416EFA6DF004F95C0 /* FileOperations.c in Sources */,
 				00B5256516F51E7D0033D7C6 /* Points.c in Sources */,
 				0074676D16F5EFB800EACA33 /* Hashing.c in Sources */,
+				0097190C16F9F3E0001E4D27 /* Sorting.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,7 @@
 #include "FileOperations.h"
 #include "Points.h"
 
-#define S 340000
+#define S 1000003
 
 unsigned int MurmurHash2(const void * key, int len, unsigned int seed)
 {
@@ -86,13 +86,13 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
         for (i = 0; check != NULL; i++) {
             hash = MurmurHash2(cstm_data.customerID, 15, 2);
             
-            if (strcmp("", table[hash%S].customerID) != 0) {
+            while (strcmp("", table[hash%S].customerID) != 0) {
                 
                 if (strcmp(cstm_data.customerID, table[hash%S].customerID) == 0) {
                     table[hash%S].points += cstm_data.points;
                 }
                 
-                table[(hash%S+1)%S] = cstm_data;
+                table[hash++%S] = cstm_data;
                 colision++;
             }
             
@@ -102,13 +102,14 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
             cstm_data = readCustomerFile(output, pr_data, mult_data);
             check = fgets(output, sizeof(output), file);
             
-            if (i%10000 == 0) {
-                printf("%d\t%d\t%f\t%f\n", i, colision, (float)colision/(float)i, ((double)clock() - start) / CLOCKS_PER_SEC);
-            }
+            //if (i%10000 == 0) {
+            //    printf("%d\t%d\t%f\t%f\n", i, colision, (float)colision/(float)i, ((double)clock() - start) / CLOCKS_PER_SEC);
+            //}
             
         }
     }
     
+    printf("%d\t%d\t%f\t%f\n", i, colision, (1-((float)colision/(float)i))*100, ((double)clock() - start) / CLOCKS_PER_SEC);
     fclose(file);
     
     

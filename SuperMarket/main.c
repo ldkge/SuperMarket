@@ -29,6 +29,10 @@ int main(int argc, const char * argv[])
     
     addToHashTable(table, pr_data, mult_data);
     
+    top10(table, S);
+    
+    
+    
     free(table);
     
     return 0;

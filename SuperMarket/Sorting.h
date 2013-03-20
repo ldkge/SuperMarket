@@ -6,9 +6,12 @@
 //  Copyright (c) 2013 Brainstorm. All rights reserved.
 //
 
+#include "Hashing.h"
+
 #ifndef SuperMarket_Sorting_h
 #define SuperMarket_Sorting_h
 
-void quickSort(int *, int );
+void quickSort(HashTable *, int );
+void top10(HashTable *, int);
 
 #endif

@@ -22,7 +22,7 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     static int i = 1;
     int j = 0;
     int day;
-    char productName[16] = {0};
+    char productName[5] = {0};
     int quantity = 0;
     double points_T = 0;
     
@@ -34,7 +34,6 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     day = (atoi(strtok(output, " ,;\r\n")));
     
     strcpy(data.customerID, strtok(NULL, " ,;\r\n"));
-
     
     pch = strtok(NULL, " ,;\r\n");
     
@@ -110,9 +109,11 @@ PriceData readPricesFile(char fileName[])
     FILE *file = NULL;
     char output[N] = {0};
     char *check = NULL;
+    int brk = 0;
+    int i = 0, max = 0;
     char *pch;
     int mon = 0, tue = 0, wed = 0, thu = 0, fri = 0, sat = 0, sun = 0;
-    char productName[16];
+    char productName[5];
     int price;
     
     file = fopen(fileName, "r");
@@ -128,6 +129,20 @@ PriceData readPricesFile(char fileName[])
             strcpy(productName, pch);
             
             price = atoi(strtok(NULL, " \t\r\n"));
+            
+            while (strcmp(productName, data.maxPrices[i++].productName) != 0) {
+                if (data.maxPrices[i].price == 0) {
+                    brk = 1;
+                    break;
+                }
+            }
+            if (brk == 1) {
+                data.maxPrices[max].price = price;
+                strcpy(data.maxPrices[max++].productName, productName);
+            }
+            if (brk == 0 && data.maxPrices[i-1].price < price) {
+                data.maxPrices[i-1].price = price;
+            }
             
             pch = strtok(NULL, " \t\r\n");
             

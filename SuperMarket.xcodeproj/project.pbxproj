@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0072BD0516F8D2B9008AE0DC /* arxeio1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0079399816F681F9003910C2 /* arxeio1.txt */; };
-		0072BD0616F8D2B9008AE0DC /* arxeio2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0079399916F681F9003910C2 /* arxeio2.txt */; };
-		0072BD0716F8D2B9008AE0DC /* arxeio3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0079399A16F681F9003910C2 /* arxeio3.txt */; };
 		0072BD0816F8D2B9008AE0DC /* file1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027E16F08F9400F81F81 /* file1.txt */; };
 		0072BD0916F8D2B9008AE0DC /* file2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027F16F08F9400F81F81 /* file2.txt */; };
 		0072BD0A16F8D2B9008AE0DC /* file3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF028016F08F9400F81F81 /* file3.txt */; };
@@ -19,6 +16,9 @@
 		00AB0F7016EF99DF004F95C0 /* SuperMarket.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00AB0F6F16EF99DF004F95C0 /* SuperMarket.1 */; };
 		00AB0F8416EFA6DF004F95C0 /* FileOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F8316EFA6DF004F95C0 /* FileOperations.c */; };
 		00B5256516F51E7D0033D7C6 /* Points.c in Sources */ = {isa = PBXBuildFile; fileRef = 00B5256416F51E7D0033D7C6 /* Points.c */; };
+		00F8A45B16FBB54500E1964C /* arxeio3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00F8A45816FBB53700E1964C /* arxeio3.txt */; };
+		00F8A45C16FBB54500E1964C /* arxeio1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00F8A45916FBB53700E1964C /* arxeio1.txt */; };
+		00F8A45D16FBB54500E1964C /* arxeio2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00F8A45A16FBB53700E1964C /* arxeio2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,9 +28,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				0072BD0516F8D2B9008AE0DC /* arxeio1.txt in CopyFiles */,
-				0072BD0616F8D2B9008AE0DC /* arxeio2.txt in CopyFiles */,
-				0072BD0716F8D2B9008AE0DC /* arxeio3.txt in CopyFiles */,
+				00F8A45B16FBB54500E1964C /* arxeio3.txt in CopyFiles */,
+				00F8A45C16FBB54500E1964C /* arxeio1.txt in CopyFiles */,
+				00F8A45D16FBB54500E1964C /* arxeio2.txt in CopyFiles */,
 				0072BD0816F8D2B9008AE0DC /* file1.txt in CopyFiles */,
 				0072BD0916F8D2B9008AE0DC /* file2.txt in CopyFiles */,
 				0072BD0A16F8D2B9008AE0DC /* file3.txt in CopyFiles */,
@@ -52,9 +52,6 @@
 /* Begin PBXFileReference section */
 		0074676C16F5EFB800EACA33 /* Hashing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Hashing.c; sourceTree = "<group>"; };
 		0074676E16F5EFC600EACA33 /* Hashing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hashing.h; sourceTree = "<group>"; };
-		0079399816F681F9003910C2 /* arxeio1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio1.txt; sourceTree = "<group>"; };
-		0079399916F681F9003910C2 /* arxeio2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio2.txt; sourceTree = "<group>"; };
-		0079399A16F681F9003910C2 /* arxeio3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio3.txt; sourceTree = "<group>"; };
 		0097190B16F9F3E0001E4D27 /* Sorting.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Sorting.c; sourceTree = "<group>"; };
 		0097190D16F9F3F2001E4D27 /* Sorting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sorting.h; sourceTree = "<group>"; };
 		00AB0F6A16EF99DF004F95C0 /* SuperMarket */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SuperMarket; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +64,9 @@
 		00EF027E16F08F9400F81F81 /* file1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file1.txt; sourceTree = "<group>"; };
 		00EF027F16F08F9400F81F81 /* file2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file2.txt; sourceTree = "<group>"; };
 		00EF028016F08F9400F81F81 /* file3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file3.txt; sourceTree = "<group>"; };
+		00F8A45816FBB53700E1964C /* arxeio3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio3.txt; sourceTree = "<group>"; };
+		00F8A45916FBB53700E1964C /* arxeio1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio1.txt; sourceTree = "<group>"; };
+		00F8A45A16FBB53700E1964C /* arxeio2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +111,9 @@
 		00AB0F7716EF9C55004F95C0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				0079399816F681F9003910C2 /* arxeio1.txt */,
-				0079399916F681F9003910C2 /* arxeio2.txt */,
-				0079399A16F681F9003910C2 /* arxeio3.txt */,
+				00F8A45816FBB53700E1964C /* arxeio3.txt */,
+				00F8A45916FBB53700E1964C /* arxeio1.txt */,
+				00F8A45A16FBB53700E1964C /* arxeio2.txt */,
 				00EF027E16F08F9400F81F81 /* file1.txt */,
 				00EF027F16F08F9400F81F81 /* file2.txt */,
 				00EF028016F08F9400F81F81 /* file3.txt */,

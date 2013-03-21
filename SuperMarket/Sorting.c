@@ -67,7 +67,7 @@ void top10(HashTable *table, int size)
     HashTable top[10] = {0};
     
     for (i = 0; i < S; i++) {
-        if ((int)table[i].points != 0) {
+        if (table[i].points > 0.1) {
             if (table[i].points > top[j-1].points) {
                 if (j == 0) {
                     top[j] = table[i];
@@ -91,6 +91,7 @@ void top10(HashTable *table, int size)
         printf("%s\t%f\n", top[i].customerID, top[i].points);
     }
 }
+
 
 void bubbleSort(HashTable numbers[], int array_size)
 {

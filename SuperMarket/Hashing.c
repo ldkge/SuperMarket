@@ -86,7 +86,9 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
         
         for (i = 0; check != NULL; i++) {
             cstm_data = readCustomerFile(output, pr_data, mult_data);
+            
             hash = MurmurHash2(cstm_data.customerID, 15, 2);
+            
             
             if (strcmp("", table[hash%S].customerID) != 0) {
                 colision++;

@@ -17,13 +17,14 @@
 
 CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData mult_data[])
 {
-    CustomerData data;
+    CustomerData data = {0};
     char *pch;
     static int i = 1;
     int j = 0;
     int day;
     char productName[16] = {0};
     int quantity = 0;
+    double points_T = 0;
     
     i++;
     
@@ -33,6 +34,7 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     day = (atoi(strtok(output, " ,;\r\n")));
     
     strcpy(data.customerID, strtok(NULL, " ,;\r\n"));
+
     
     pch = strtok(NULL, " ,;\r\n");
     
@@ -43,7 +45,7 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
         
         pch = strtok(NULL, " ,;\r\n");
         quantity = atoi(pch);
-        data.points += calcPoints(productName, day, quantity, pr_data, mult_data);
+        data.points += points_T = calcPoints(productName, day, quantity, pr_data, mult_data);
         pch = strtok(NULL, " ,;\r\n");
         
     }
@@ -104,7 +106,7 @@ void readCategoriesFile(char fileName[], MultiplierData data[])
 
 PriceData readPricesFile(char fileName[])
 {
-    PriceData data;
+    PriceData data = {0};
     FILE *file = NULL;
     char output[N] = {0};
     char *check = NULL;
@@ -121,8 +123,6 @@ PriceData readPricesFile(char fileName[])
         check = fgets(output, sizeof(output), file);
         
         do {
-            
-            
             pch = strtok(output, " \t\r\n");
             
             strcpy(productName, pch);

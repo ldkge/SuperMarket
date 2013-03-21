@@ -19,8 +19,8 @@
 
 int main(int argc, const char * argv[])
 {
-    PriceData pr_data;
-    MultiplierData mult_data[N];
+    PriceData pr_data = {0};
+    MultiplierData mult_data[N] = {0};
     HashTable *table = malloc(S * sizeof(HashTable));
     
     readCategoriesFile("arxeio2.txt", mult_data);

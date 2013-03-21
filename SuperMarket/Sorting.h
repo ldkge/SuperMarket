@@ -13,5 +13,6 @@
 
 void quickSort(HashTable *, int );
 void top10(HashTable *, int);
+void bubbleSort(HashTable [], int );
 
 #endif

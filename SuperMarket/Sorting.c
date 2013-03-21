@@ -64,33 +64,49 @@ void quickSort(HashTable *arr, int elements) {
 void top10(HashTable *table, int size)
 {
     int i, j = 0;
-    HashTable top[10], temp = {0};
+    HashTable top[10] = {0};
     
     for (i = 0; i < S; i++) {
         if ((int)table[i].points != 0) {
-            if (j < 10) {
-                if (top[i].points < table[i].points) {
-                    if (j != 0) {
-                        temp = top[j-1];
-                        top[j-1] = table[i];
-                        top[j] = temp;
-                        j++;
-                    }
-                    else {
-                        top[j] = table[i];
-                        j++;
-                    }
+            if (table[i].points > top[j-1].points) {
+                if (j == 0) {
+                    top[j] = table[i];
+                    j++;
+                    continue;
                 }
-            }
-            else {
-                if (top[9].points < table[i].points) {
-                    top[9] = table[i];
+                top[j] = table[i];
+                
+                
+                if (j < 9) {
+                    j++;
                 }
+                
+                bubbleSort(top, 10);
+                
             }
         }
     }
     
     for (i = 0; i < 10; i++) {
         printf("%s\t%f\n", top[i].customerID, top[i].points);
+    }
+}
+
+void bubbleSort(HashTable numbers[], int array_size)
+{
+    int i, j;
+    HashTable temp;
+    
+    for (i = (array_size - 1); i > 0; i--)
+    {
+        for (j = 1; j <= i; j++)
+        {
+            if (numbers[j-1].points < numbers[j].points)
+            {
+                temp = numbers[j-1];
+                numbers[j-1] = numbers[j];
+                numbers[j] = temp;
+            }
+        }
     }
 }

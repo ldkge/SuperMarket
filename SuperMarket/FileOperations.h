@@ -43,6 +43,7 @@ struct priceData {
     struct day Saturday[150];
     struct day Sunday[150];
     struct maxPrice maxPrices[250];
+    int max_size;
 };
 
 typedef struct customerData CustomerData;

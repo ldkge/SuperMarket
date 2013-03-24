@@ -19,16 +19,9 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
 {
     CustomerData data = {0};
     char *pch;
-    static int i = 1;
-    int j = 0;
     int day;
     char productName[5] = {0};
     int quantity = 0;
-    double points_T = 0;
-    
-    i++;
-    
-    data.points = 0;
     
     
     day = (atoi(strtok(output, " ,;\r\n")));
@@ -44,20 +37,11 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
         
         pch = strtok(NULL, " ,;\r\n");
         quantity = atoi(pch);
-        data.points += points_T = calcPoints(productName, day, quantity, pr_data, mult_data);
+        data.points += calcPoints(productName, day, quantity, pr_data, mult_data);
         pch = strtok(NULL, " ,;\r\n");
         
     }
     
-    j++;
-    
-    
-    j = 0;
-    
-    
-
-    
-        // Find the latest line in data table
     
     
 
@@ -110,7 +94,7 @@ PriceData readPricesFile(char fileName[])
     char output[N] = {0};
     char *check = NULL;
     int brk = 0;
-    int i = 0, max = 0;
+    int i = 0;
     char *pch;
     int mon = 0, tue = 0, wed = 0, thu = 0, fri = 0, sat = 0, sun = 0;
     char productName[5];
@@ -137,8 +121,8 @@ PriceData readPricesFile(char fileName[])
                 }
             }
             if (brk == 1) {
-                data.maxPrices[max].price = price;
-                strcpy(data.maxPrices[max++].productName, productName);
+                data.maxPrices[data.max_size].price = price;
+                strcpy(data.maxPrices[data.max_size++].productName, productName);
             }
             if (brk == 0 && data.maxPrices[i-1].price < price) {
                 data.maxPrices[i-1].price = price;

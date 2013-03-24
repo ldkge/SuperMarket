@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "Points.h"
 #include "FileOperations.h"
 
@@ -15,7 +16,6 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
 {
     double multiplier = 0.5;
     int i = 0;
-    int check;
     int i_max = -1;
     int price = 0;
     
@@ -32,9 +32,8 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
     switch (day) {
         case 1: {
             do {
-                check = strcmp(productName, pr_data.Monday[i++].productName);
                 
-                if (check == 0) {
+                if (strcmp(productName, pr_data.Monday[i++].productName) == 0) {
                     i_max = i - 1;
                 }
                 
@@ -56,9 +55,8 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
             break;
         case 2: {
             do {
-                check = strcmp(productName, pr_data.Tuesday[i++].productName);
                 
-                if (check == 0) {
+                if (strcmp(productName, pr_data.Tuesday[i++].productName) == 0) {
                     i_max = i - 1;
                 }
                 
@@ -80,9 +78,8 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
             break;
         case 3: {
             do {
-                check = strcmp(productName, pr_data.Wednesday[i++].productName);
                 
-                if (check == 0) {
+                if (strcmp(productName, pr_data.Wednesday[i++].productName) == 0) {
                     i_max = i - 1;
                 }
                 
@@ -101,12 +98,11 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
             }
             
         }
-            break;
+        break;
         case 4: {
             do {
-                check = strcmp(productName, pr_data.Thursday[i++].productName);
                 
-                if (check == 0) {
+                if (strcmp(productName, pr_data.Thursday[i++].productName) == 0) {
                     i_max = i - 1;
                 }
                 
@@ -128,9 +124,8 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
             break;
         case 5: {
             do {
-                check = strcmp(productName, pr_data.Friday[i++].productName);
                 
-                if (check == 0) {
+                if (strcmp(productName, pr_data.Friday[i++].productName) == 0) {
                     i_max = i - 1;
                 }
                 
@@ -152,9 +147,9 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
             break;
         case 6: {
             do {
-                check = strcmp(productName, pr_data.Saturday[i++].productName);
+
                 
-                if (check == 0) {
+                if (strcmp(productName, pr_data.Saturday[i++].productName) == 0) {
                     i_max = i - 1;
                 }
                 
@@ -176,9 +171,8 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
             break;
         case 7: {
             do {
-                check = strcmp(productName, pr_data.Sunday[i++].productName);
                 
-                if (check == 0) {
+                if (strcmp(productName, pr_data.Sunday[i++].productName) == 0) {
                     i_max = i - 1;
                 }
                 
@@ -205,5 +199,23 @@ double calcPoints(char productName[], int day, int quantity, PriceData pr_data, 
     
     
     return price * multiplier;
+}
+
+int binarySearch(int target, PriceData data, int low, int high)
+{
+    int middle;
+    
+    while (low <= high) {
+        middle = low + (high - low)/2;
+        if (target < atoi(&data.maxPrices[middle].productName[1]))
+            high = middle - 1;
+        else if (target > atoi(&data.maxPrices[middle].productName[1]))
+            low = middle + 1;
+        else
+            return data.maxPrices[middle].price;
+    }
+
+    
+    return 10;
 }
 

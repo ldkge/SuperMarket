@@ -20,7 +20,7 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     CustomerData data = {0};
     char *pch;
     int day;
-    char productName[5] = {0};
+    int productName;
     int quantity = 0;
     
     
@@ -33,7 +33,7 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     while (pch != NULL) {
         
         
-        strcpy(productName, pch);
+        productName = atoi(&pch[1]);
         
         pch = strtok(NULL, " ,;\r\n");
         quantity = atoi(pch);
@@ -66,17 +66,17 @@ void readCategoriesFile(char fileName[], MultiplierData data[])
         do {
             
             
-            pch = strtok(output, ":,\r\n");
+            pch = strtok(output, "P:,\r\n");
             
-            mult = (atof(strtok(NULL, ":,\r\n")));
+            mult = (atof(strtok(NULL, "P:,\r\n")));
             
-            pch = strtok(NULL, ":,\r\n");
+            pch = strtok(NULL, "P:,\r\n");
             
             while (pch != NULL) {
                 data[i].multiplier = mult;
-                strcpy(data[i++].product, pch);
+                data[i++].product = atoi(pch);
                 
-                pch = strtok(NULL, ":,\r\n");
+                pch = strtok(NULL, "P:,\r\n");
                 
             }
             check = fgets(output, sizeof(output), file);
@@ -97,7 +97,7 @@ PriceData readPricesFile(char fileName[])
     int i = 0;
     char *pch;
     int mon = 0, tue = 0, wed = 0, thu = 0, fri = 0, sat = 0, sun = 0;
-    char productName[5];
+    int productName;
     int price;
     
     file = fopen(fileName, "r");
@@ -108,13 +108,13 @@ PriceData readPricesFile(char fileName[])
         check = fgets(output, sizeof(output), file);
         
         do {
-            pch = strtok(output, " \t\r\n");
+            pch = strtok(output, "P \t\r\n");
             
-            strcpy(productName, pch);
+            productName = atoi(pch);
             
-            price = atoi(strtok(NULL, " \t\r\n"));
+            price = atoi(strtok(NULL, "P \t\r\n"));
             
-            while (strcmp(productName, data.maxPrices[i++].productName) != 0) {
+            while (productName != data.maxPrices[i++].productName) {
                 if (data.maxPrices[i].price == 0) {
                     brk = 1;
                     break;
@@ -122,68 +122,68 @@ PriceData readPricesFile(char fileName[])
             }
             if (brk == 1) {
                 data.maxPrices[data.max_size].price = price;
-                strcpy(data.maxPrices[data.max_size++].productName, productName);
+                data.maxPrices[data.max_size++].productName = productName;
             }
             if (brk == 0 && data.maxPrices[i-1].price < price) {
                 data.maxPrices[i-1].price = price;
             }
             
-            pch = strtok(NULL, " \t\r\n");
+            pch = strtok(NULL, "P \t\r\n");
             
             while (pch != NULL) {
                 if (pch != NULL && atoi(pch) == 1)
                 {
                     data.Monday[mon].price = price;
-                    strcpy(data.Monday[mon++].productName, productName);
-                    pch = strtok(NULL, " \t\r\n");
+                    data.Monday[mon++].productName = productName;
+                    pch = strtok(NULL, "P \t\r\n");
                 }
                 
                 if (pch != NULL && atoi(pch) == 2)
                 {
                     data.Tuesday[tue].price = price;
-                    strcpy(data.Tuesday[tue++].productName, productName);
-                    pch = strtok(NULL, " \t\r\n");
+                    data.Tuesday[tue++].productName = productName;
+                    pch = strtok(NULL, "P \t\r\n");
                 }
                 
                 if (pch != NULL && atoi(pch) == 3)
                 {
                     data.Wednesday[wed].price = price;
-                    strcpy(data.Wednesday[wed++].productName, productName);
-                    pch = strtok(NULL, " \t\r\n");
+                    data.Wednesday[wed++].productName = productName;
+                    pch = strtok(NULL, "P \t\r\n");
                 }
                 
                 if (pch != NULL && atoi(pch) == 4)
                 {
                     data.Thursday[thu].price = price;
-                    strcpy(data.Thursday[thu++].productName, productName);
-                    pch = strtok(NULL, " \t\r\n");
+                    data.Thursday[thu++].productName = productName;
+                    pch = strtok(NULL, "P \t\r\n");
                 }
                 
                 if (pch != NULL && atoi(pch) == 5)
                 {
                     data.Friday[fri].price = price;
-                    strcpy(data.Friday[fri++].productName, productName);
-                    pch = strtok(NULL, " \t\r\n");
+                    data.Friday[fri++].productName = productName;
+                    pch = strtok(NULL, "P \t\r\n");
                 }
                 
                 if (pch != NULL && atoi(pch) == 6)
                 {
                     data.Saturday[sat].price = price;
-                    strcpy(data.Saturday[sat++].productName, productName);
-                    pch = strtok(NULL, " \t\r\n");
+                    data.Saturday[sat++].productName = productName;
+                    pch = strtok(NULL, "P \t\r\n");
                 }
                 
                 if (pch != NULL && atoi(pch) == 7)
                 {
                     data.Sunday[sun].price = price;
-                    strcpy(data.Sunday[sun++].productName, productName);
-                    pch = strtok(NULL, " \t\r\n");
+                    data.Sunday[sun++].productName = productName;
+                    pch = strtok(NULL, "P \t\r\n");
                 }
 
 
                 
                 if (pch != NULL && atoi(pch) != 1  && atoi(pch) != 2  && atoi(pch) != 3  && atoi(pch) != 4  && atoi(pch) != 5  && atoi(pch) != 6  && atoi(pch) != 7) {
-                    pch = strtok(NULL, " \t\r\n");
+                    pch = strtok(NULL, "P \t\r\n");
                 }
                 
                 

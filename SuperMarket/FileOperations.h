@@ -10,7 +10,7 @@
 #define SuperMarket_FileOperations_h
 
 struct Products {
-    char productName[5];
+    int productName;
     char quantity;
 };
 
@@ -21,16 +21,16 @@ struct customerData {
 
 struct multiplierData {
     double multiplier;
-    char product[5];
+    int product;
 };
 
 struct day {
-    char productName[5];
+    int productName;
     int price;
 };
 
 struct maxPrice {
-    char productName[5];
+    int productName;
     int price;
 };
 

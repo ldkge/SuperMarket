@@ -14,6 +14,6 @@
 typedef CustomerData HashTable;
 
 unsigned int MurmurHash2(const void * , int , unsigned int );
-void addToHashTable(HashTable [], PriceData , MultiplierData []);
+void addToHashTable(HashTable [], PriceData , MultiplierData [], int);
 
 #endif

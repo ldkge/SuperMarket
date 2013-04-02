@@ -66,7 +66,7 @@ unsigned int MurmurHash2(const void * key, int len, unsigned int seed)
 	return h;
 }
 
-void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_data[])
+void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_data[], int mult_max)
 {
     CustomerData cstm_data;
     int i = 0;
@@ -85,7 +85,7 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
         
         
         for (i = 0; check != NULL; i++) {
-            cstm_data = readCustomerFile(output, pr_data, mult_data);
+            cstm_data = readCustomerFile(output, pr_data, mult_data, mult_max);
             
             //if (strcmp("AFASDHQZHZNLDGS", cstm_data.customerID) == 0) {
             //    printf("");

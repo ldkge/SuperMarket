@@ -50,8 +50,8 @@ typedef struct customerData CustomerData;
 typedef struct multiplierData MultiplierData;
 typedef struct priceData PriceData;
 
-CustomerData readCustomerFile(char [], PriceData , MultiplierData []);
-void readCategoriesFile(char [], MultiplierData []);
+CustomerData readCustomerFile(char [], PriceData , MultiplierData [], int);
+int readCategoriesFile(char [], MultiplierData []);
 PriceData readPricesFile(char []);
 
 

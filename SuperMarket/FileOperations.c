@@ -15,7 +15,7 @@
 
 #define N 500
 
-CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData mult_data[])
+CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData mult_data[], int mult_max)
 {
     CustomerData data = {0};
     char *pch;
@@ -28,6 +28,10 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     
     strcpy(data.customerID, strtok(NULL, " ,;\r\n"));
     
+    /*if (strcmp("AFZFLCAFIPYPRBE", data.customerID) == 0) {
+        printf("");
+    }*/
+    
     pch = strtok(NULL, " ,;\r\n");
     
     while (pch != NULL) {
@@ -37,7 +41,7 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
         
         pch = strtok(NULL, " ,;\r\n");
         quantity = atoi(pch);
-        data.points += calcPoints(productName, day, quantity, pr_data, mult_data);
+        data.points += calcPoints(productName, day, quantity, pr_data, mult_data, mult_max);
         pch = strtok(NULL, " ,;\r\n");
         
     }
@@ -49,7 +53,7 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     return data;
 }
 
-void readCategoriesFile(char fileName[], MultiplierData data[])
+int readCategoriesFile(char fileName[], MultiplierData data[])
 {
     FILE *file = NULL;
     char output[N] = {0};
@@ -85,6 +89,8 @@ void readCategoriesFile(char fileName[], MultiplierData data[])
     }
     
     fclose(file);
+    
+    return i;
 }
 
 PriceData readPricesFile(char fileName[])
@@ -94,7 +100,7 @@ PriceData readPricesFile(char fileName[])
     char output[N] = {0};
     char *check = NULL;
     int brk = 0;
-    int i = 0;
+    int i;
     char *pch;
     int mon = 0, tue = 0, wed = 0, thu = 0, fri = 0, sat = 0, sun = 0;
     int productName;
@@ -114,18 +120,20 @@ PriceData readPricesFile(char fileName[])
             
             price = atoi(strtok(NULL, "P \t\r\n"));
             
-            while (productName != data.maxPrices[i++].productName) {
+            for (i = 0; productName != data.maxPrices[i].productName; i++) {
                 if (data.maxPrices[i].price == 0) {
                     brk = 1;
                     break;
                 }
             }
+            
             if (brk == 1) {
                 data.maxPrices[data.max_size].price = price;
                 data.maxPrices[data.max_size++].productName = productName;
+                brk = 0;
             }
-            if (brk == 0 && data.maxPrices[i-1].price < price) {
-                data.maxPrices[i-1].price = price;
+            else if (brk == 0 && data.maxPrices[i].price < price) {
+                data.maxPrices[i].price = price;
             }
             
             pch = strtok(NULL, "P \t\r\n");

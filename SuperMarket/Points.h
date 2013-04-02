@@ -11,7 +11,8 @@
 #ifndef SuperMarket_Points_h
 #define SuperMarket_Points_h
 
-double calcPoints(int , int , int , PriceData , MultiplierData []);
+double calcPoints(int , int , int , PriceData , MultiplierData [], int);
 int binarySearch(int , PriceData , int, int);
+double binarySearch_d(int, MultiplierData [], int, int);
 
 #endif

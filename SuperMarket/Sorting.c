@@ -7,58 +7,49 @@
 //
 
 #include <stdio.h>
+#include <string.h>
 #include "Sorting.h"
 #include "Hashing.h"
+#include "FileOperations.h"
 
 #define S 1000003
 
-void quickSort(HashTable *arr, int elements) {
+int quickSort(MultiplierData * arr, int elements) {
     
-#define  MAX_LEVELS  300
+#define  MAX_LEVELS  1000
     
-    int  piv, beg[MAX_LEVELS], end[MAX_LEVELS], i = 0, L, R, swap ;
+    int beg[MAX_LEVELS], end[MAX_LEVELS], i=0, L, R ;
+    MultiplierData piv;
     
-    beg[0] = 0;
-    end[0] = elements;
-    
-    while (i >= 0) {
-        L = beg[i];
-        R = end[i] - 1;
+    beg[0]=0;
+    end[0]=elements;
+    while (i>=0) {
+        L=beg[i];
+        R=end[i]-1;
         if (L<R) {
-            piv = arr[L].points;
+            piv=arr[L];
+            if (i==MAX_LEVELS-1)
+                return 0;
             while (L<R) {
-                while (arr[R].points >= piv && L < R) {
+                while (arr[R].product>=piv.product && L<R)
                     R--;
-                }
-                if (L<R) {
-                    arr[L++] = arr[R];
-                }
-                while (arr[L].points <= piv && L < R) {
+                if (L<R)
+                    arr[L++]=arr[R];
+                while (arr[L].product<=piv.product && L<R)
                     L++;
-                }
-                if (L < R) {
-                    arr[R--] = arr[L];
-                }
+                if (L<R)
+                    arr[R--]=arr[L];
             }
-            
-            arr[L].points = piv;
-            beg[i+1] = L+1;
-            end[i+1] = end[i];
-            end[i++] = L;
-            
-            if (end[i] - beg[i] > end[i-1] - beg[i-1]) {
-                swap = beg[i];
-                beg[i] = beg[i-1];
-                beg[i-1] = swap;
-                swap = end[i];
-                end[i] = end[i-1];
-                end[i-1] = swap;
-            }
+            arr[L]=piv;
+            beg[i+1]=L+1;
+            end[i+1]=end[i];
+            end[i++]=L;
         }
         else {
             i--;
         }
     }
+    return 1;
 }
 
 void top10(HashTable *table, int size)
@@ -67,26 +58,19 @@ void top10(HashTable *table, int size)
     HashTable top[10] = {0};
     
     for (i = 0; i < S; i++) {
-        if (table[i].points > 0.1) {
-            if (table[i].points > top[j-1].points) {
-                if (j == 0) {
-                    top[j] = table[i];
-                    j++;
-                    continue;
-                }
-                top[j] = table[i];
-                
-                
-                if (j < 9) {
-                    j++;
-                }
-                
-                bubbleSort(top, 10);
-                
+        if (table[i].points > 0.1 && table[i].points > top[j].points) {
+            top[j] = table[i];
+            
+            
+            if (j < 9) {
+                j++;
             }
+            
+            bubbleSort(top, 10);
+            
         }
     }
-    
+
     for (i = 0; i < 10; i++) {
         printf("%s\t%f\n", top[i].customerID, top[i].points);
     }

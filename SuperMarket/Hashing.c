@@ -72,7 +72,7 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
     int i = 0;
     FILE *file = NULL;
     int colision = 0;
-    unsigned int hash;
+    unsigned int hash, prehash;
     char* check;
     char output[500] = {0};
     
@@ -91,24 +91,24 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
             //    printf("");
             //}
             
-            hash = MurmurHash2(cstm_data.customerID, 15, 2);
+            prehash = MurmurHash2(cstm_data.customerID, 15, 2);
+            hash = prehash%S;
             
-            
-            if (strcmp("", table[hash%S].customerID) != 0) {
+            if (strcmp("", table[hash].customerID) != 0) {
                 colision++;
-                while (strcmp("", table[++hash%S].customerID) != 0) {
-                    
+                
+                if (strcmp(cstm_data.customerID, table[hash].customerID) == 0) {
+                    table[hash].points += cstm_data.points;
                 }
                 
-                if (strcmp(cstm_data.customerID, table[hash%S].customerID) == 0) {
-                    table[hash%S].points += cstm_data.points;
-                }
+                while (strcmp("", table[++hash].customerID) != 0);
+
                 
-                table[hash%S] = cstm_data;
+                table[hash] = cstm_data;
                 
             }
             else {
-                table[hash%S] = cstm_data;
+                table[hash] = cstm_data;
             }
 
             

@@ -207,3 +207,29 @@ PriceData readPricesFile(char fileName[])
     
     return data;
 }
+
+void readTeamPointsFile(char filename[], TeamPointsData data[])
+{
+    FILE *file;
+    char *check = NULL;
+    char *pch;
+    char output[N] = {0};
+    int i;
+    
+    file = fopen(filename, "r");
+    
+    if (file != NULL) {
+        check = fgets(output, sizeof(output), file);
+        
+        for (i = 0; check != NULL; i++) {
+            pch = strtok(output, "G \t\r\n");
+            
+            data[i].prize = atoi(pch);
+            
+            pch = strtok(NULL, "G \t\r\n");
+            data[i].points = atoi(pch);
+            
+            check = fgets(output, sizeof(output), file);
+        }
+    }
+}

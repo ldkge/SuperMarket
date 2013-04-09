@@ -46,14 +46,20 @@ struct priceData {
     int max_size;
 };
 
+struct teamPointsData {
+    int prize;
+    int points;
+};
+
 typedef struct customerData CustomerData;
 typedef struct multiplierData MultiplierData;
 typedef struct priceData PriceData;
+typedef struct teamPointsData TeamPointsData;
 
 CustomerData readCustomerFile(char [], PriceData , MultiplierData [], int);
 int readCategoriesFile(char [], MultiplierData []);
 PriceData readPricesFile(char []);
-
+void readTeamPointsFile(char [], TeamPointsData []);
 
 
 #endif

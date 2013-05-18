@@ -15,8 +15,8 @@
 #include "Sorting.h"
 #include "Teams.h"
 
-#define N 100
-#define S 1000003
+#define N 1000
+#define S 93761
 
 int main(int argc, const char * argv[])
 {
@@ -26,11 +26,11 @@ int main(int argc, const char * argv[])
     HashTable *table = malloc(S * sizeof(HashTable));
     int size;
     
-    size = readCategoriesFile("arxeio2.txt", mult_data);
+    size = readCategoriesFile(mult_data);
     
-    pr_data = readPricesFile("arxeio3.txt");
+    pr_data = readPricesFile();
     
-    readTeamPointsFile("arxeio5.txt", team_data);
+    readTeamPointsFile(team_data);
     
     quickSort(mult_data, size);
     
@@ -38,7 +38,7 @@ int main(int argc, const char * argv[])
     
     top10(table, S);
     
-    calcPrizes("arxeio4.txt", team_data, table);
+    calcPrizes(team_data, table);
     
     free(table);
     

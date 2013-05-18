@@ -35,14 +35,14 @@ struct maxPrice {
 };
 
 struct priceData {
-    struct day Monday[150];
-    struct day Tuesday[150];
-    struct day Wednesday[150];
-    struct day Thursday[150];
-    struct day Friday[150];
-    struct day Saturday[150];
-    struct day Sunday[150];
-    struct maxPrice maxPrices[250];
+    struct day Monday[500];
+    struct day Tuesday[500];
+    struct day Wednesday[500];
+    struct day Thursday[500];
+    struct day Friday[500];
+    struct day Saturday[500];
+    struct day Sunday[500];
+    struct maxPrice maxPrices[1000];
     int max_size;
 };
 
@@ -57,9 +57,9 @@ typedef struct priceData PriceData;
 typedef struct teamPointsData TeamPointsData;
 
 CustomerData readCustomerFile(char [], PriceData , MultiplierData [], int);
-int readCategoriesFile(char [], MultiplierData []);
-PriceData readPricesFile(char []);
-void readTeamPointsFile(char [], TeamPointsData []);
+int readCategoriesFile(MultiplierData []);
+PriceData readPricesFile();
+void readTeamPointsFile(TeamPointsData []);
 
 
 #endif

@@ -12,6 +12,6 @@
 #ifndef SuperMarket_Teams_h
 #define SuperMarket_Teams_h
 
-void calcPrizes(char [], TeamPointsData [], HashTable []);
+void calcPrizes(TeamPointsData [], HashTable []);
 
 #endif

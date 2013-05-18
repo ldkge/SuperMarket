@@ -12,19 +12,26 @@
 #include "Hashing.h"
 #include "FileOperations.h"
 
-#define S 1000003
+#define S 93761
+#define M 15
 
-void calcPrizes(char filename[], TeamPointsData data[], HashTable table[])
+void calcPrizes(TeamPointsData data[], HashTable table[])
 {
     FILE *file;
     char *check = NULL;
     int chk = 0;
+    char fileName[M];
     char output[16] = {0};
     int prehash, hash;
     double points = 0;
     int i;
     
-    file = fopen(filename, "r");
+    do {
+        printf("Enter the name of the forth file: ");
+        scanf("%s", fileName);
+        
+        file = fopen(fileName, "r");
+    } while (file == NULL);
     
     if (file != NULL) {
         check = fgets(output, sizeof(output), file);

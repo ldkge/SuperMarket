@@ -13,7 +13,8 @@
 #include "FileOperations.h"
 #include "Points.h"
 
-#define N 500
+#define N 1000
+#define M 15
 
 CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData mult_data[], int mult_max)
 {
@@ -27,10 +28,6 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     day = (atoi(strtok(output, " ,;\r\n")));
     
     strcpy(data.customerID, strtok(NULL, " ,;\r\n"));
-    
-    /*if (strcmp("AFZFLCAFIPYPRBE", data.customerID) == 0) {
-        printf("");
-    }*/
     
     pch = strtok(NULL, " ,;\r\n");
     
@@ -53,16 +50,23 @@ CustomerData readCustomerFile(char output[], PriceData pr_data, MultiplierData m
     return data;
 }
 
-int readCategoriesFile(char fileName[], MultiplierData data[])
+int readCategoriesFile(MultiplierData data[])
 {
     FILE *file = NULL;
     char output[N] = {0};
+    char fileName[M];
     char *check = NULL;
     char *pch;
     int i = 0;
     double mult;
     
-    file = fopen(fileName, "r");
+    do {
+        printf("Enter the name of the second file: ");
+        scanf("%s", fileName);
+        
+        file = fopen(fileName, "r");
+    } while (file == NULL);
+    
     
     if (file != NULL) {
         check = fgets(output, sizeof(output), file);
@@ -93,12 +97,13 @@ int readCategoriesFile(char fileName[], MultiplierData data[])
     return i;
 }
 
-PriceData readPricesFile(char fileName[])
+PriceData readPricesFile()
 {
     PriceData data = {0};
     FILE *file = NULL;
     char output[N] = {0};
     char *check = NULL;
+    char fileName[M];
     int brk = 0;
     int i;
     char *pch;
@@ -106,7 +111,12 @@ PriceData readPricesFile(char fileName[])
     int productName;
     int price;
     
-    file = fopen(fileName, "r");
+    do {
+        printf("Enter the name of the third file: ");
+        scanf("%s", fileName);
+        
+        file = fopen(fileName, "r");
+    } while (file == NULL);
     
     
     
@@ -208,15 +218,21 @@ PriceData readPricesFile(char fileName[])
     return data;
 }
 
-void readTeamPointsFile(char filename[], TeamPointsData data[])
+void readTeamPointsFile(TeamPointsData data[])
 {
     FILE *file;
     char *check = NULL;
     char *pch;
     char output[N] = {0};
+    char fileName[M];
     int i;
     
-    file = fopen(filename, "r");
+    do {
+        printf("Enter the name of the fifth file: ");
+        scanf("%s", fileName);
+        
+        file = fopen(fileName, "r");
+    } while (file == NULL);
     
     if (file != NULL) {
         check = fgets(output, sizeof(output), file);

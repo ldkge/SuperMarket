@@ -12,7 +12,7 @@
 #include "Hashing.h"
 #include "FileOperations.h"
 
-#define S 1000003
+#define S 93761
 
 int quickSort(MultiplierData * arr, int elements) {
     

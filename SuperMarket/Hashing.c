@@ -13,7 +13,8 @@
 #include "FileOperations.h"
 #include "Points.h"
 
-#define S 1000003
+#define S 93761
+#define M 15
 
 unsigned int MurmurHash2(const void * key, int len, unsigned int seed)
 {
@@ -66,45 +67,109 @@ unsigned int MurmurHash2(const void * key, int len, unsigned int seed)
 	return h;
 }
 
+unsigned int KnuthHash(char v[])
+{
+    unsigned int out = 0;
+    int i;
+    
+    for (i = 0; v[i] != '\0'; i++) {
+        out += v[i];
+        out *= 2654435761;
+        
+    }
+    
+    return out >> 16;
+}
+
+unsigned int BKDRHash(char* str, unsigned int len)
+{
+    unsigned int seed = 131; /* 31 131 1313 13131 131313 etc.. */
+    unsigned int hash = 0;
+    unsigned int i    = 0;
+    
+    for(i = 0; i < len; str++, i++)
+    {
+        hash = (hash * seed) + (*str);
+    }
+    
+    return hash;
+}
+
 void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_data[], int mult_max)
 {
     CustomerData cstm_data;
     int i = 0;
     FILE *file = NULL;
     int colision = 0;
+    char fileName[M];
     unsigned int hash, prehash;
     char* check;
+    int choice;
+    int brk = 0;
     char output[500] = {0};
     
-    file = fopen("arxeio1.txt", "r");
+    
+    do {
+        printf("Enter the name of the first file: ");
+        scanf("%s", fileName);
+        
+        file = fopen(fileName, "r");
+    } while (file == NULL);
     
     clock_t start = clock();
     
     if (file != NULL) {
         check = fgets(output, sizeof(output), file);
         
+        do{
+            printf("\n0)MurmurHash2\n1)KnuthHash\n2)BKDRHash\nChoose the hash function: ");
+            scanf("%d", &choice);
+            if (choice < 3) {
+                printf("\nCalculating...\n");
+            }
+        } while (choice > 3);
         
         for (i = 0; check != NULL; i++) {
             cstm_data = readCustomerFile(output, pr_data, mult_data, mult_max);
             
-            //if (strcmp("AFASDHQZHZNLDGS", cstm_data.customerID) == 0) {
-            //    printf("");
-            //}
             
-            prehash = MurmurHash2(cstm_data.customerID, 15, 2);
+            switch (choice) {
+                case 0:
+                    prehash = MurmurHash2(cstm_data.customerID, 15, 2);
+                    break;
+                    case 1:
+                    prehash = KnuthHash(cstm_data.customerID);
+                    break;
+                    case 2:
+                    prehash = BKDRHash(cstm_data.customerID, 15);
+                    break;
+                default:
+                    break;
+            }
+
             hash = prehash%S;
             
-            if (strcmp("", table[hash].customerID) != 0) {
-                colision++;
+            if (strcmp(cstm_data.customerID, table[hash].customerID) == 0) {
+                table[hash].points += cstm_data.points;
+            }
+            else if (strcmp("", table[hash].customerID) != 0) {
                 
-                if (strcmp(cstm_data.customerID, table[hash].customerID) == 0) {
-                    table[hash].points += cstm_data.points;
+                while (strcmp("", table[(++hash)%S].customerID) != 0) {
+                    if (strcmp(cstm_data.customerID, table[hash%S].customerID) == 0) {
+                        table[hash%S].points += cstm_data.points;
+                        brk = 1;
+                        break;
+                    }
                 }
                 
-                while (strcmp("", table[++hash].customerID) != 0);
-
+                if (brk != 1) {
+                    colision++;
+                    table[hash%S] = cstm_data;
+                }
+                else {
+                    brk = 0;
+                }
                 
-                table[hash] = cstm_data;
                 
             }
             else {
@@ -117,14 +182,11 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
             
             check = fgets(output, sizeof(output), file);
             
-            //if (i%10000 == 0) {
-            //    printf("%d\t%d\t%f\t%f\n", i, colision, (1-((float)colision/(float)i))*100, ((double)clock() - start) / CLOCKS_PER_SEC);
-            //}
             
         }
     }
     
-    printf("%d\t%d\t%f\t%f\n", i, colision, (1-((float)colision/(float)i))*100, ((double)clock() - start) / CLOCKS_PER_SEC);
+    printf("\nN    Collisions Efficiency  Time Elapsed\n%d\t%d\t%f\t%f\n", i, colision, (1-((float)colision/(float)i))*100, ((double)clock() - start) / CLOCKS_PER_SEC);
     fclose(file);
     
     

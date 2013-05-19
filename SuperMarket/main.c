@@ -25,6 +25,7 @@ int main(int argc, const char * argv[])
     TeamPointsData team_data[N] = {0};
     HashTable *table = malloc(S * sizeof(HashTable));
     int size;
+    int choice;
     
     pr_data = readPricesFile();
     
@@ -32,13 +33,13 @@ int main(int argc, const char * argv[])
     
     quickSort(mult_data, size);
     
-    addToHashTable(table, pr_data, mult_data, size);
+    choice = addToHashTable(table, pr_data, mult_data, size);
     
     top10(table, S);
     
     readTeamPointsFile(team_data);
     
-    calcPrizes(team_data, table);
+    calcPrizes(team_data, table, choice);
     
     free(table);
     

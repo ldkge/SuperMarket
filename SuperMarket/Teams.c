@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "Teams.h"
 #include "Hashing.h"
 #include "FileOperations.h"
@@ -15,7 +16,7 @@
 #define S 93761
 #define M 15
 
-void calcPrizes(TeamPointsData data[], HashTable table[])
+void calcPrizes(TeamPointsData data[], HashTable table[], int choice)
 {
     FILE *file;
     char *check = NULL;
@@ -27,7 +28,7 @@ void calcPrizes(TeamPointsData data[], HashTable table[])
     int i;
     
     do {
-        printf("Enter the name of the forth file: ");
+        printf("Enter the name of the fourth file: ");
         scanf("%s", fileName);
         
         file = fopen(fileName, "r");
@@ -37,7 +38,20 @@ void calcPrizes(TeamPointsData data[], HashTable table[])
         check = fgets(output, sizeof(output), file);
         
         for (i = 0; check != NULL; i++) {
-            prehash = MurmurHash2(output, 15, 2);
+            switch (choice) {
+                case 0:
+                    prehash = abs(BKDRHash(output, 15));
+                    break;
+                case 1:
+                    prehash = abs(MurmurHash2(output, 15, 2));
+                    break;
+                case 2:
+                    prehash = abs(KnuthHash(output));
+                    break;
+                default:
+                    break;
+            }
+            
             hash = prehash%S;
             
             while (strcmp(output, table[hash].customerID) != 0)
@@ -60,6 +74,9 @@ void calcPrizes(TeamPointsData data[], HashTable table[])
 
             
             check = fgets(output, sizeof(output), file);
+            if (strcmp(output, "\r\n") == 0) {
+                check = fgets(output, sizeof(output), file);
+            }
         }
         
         printf("\nYou are eligible for:\n");

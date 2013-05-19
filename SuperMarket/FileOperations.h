@@ -35,14 +35,14 @@ struct maxPrice {
 };
 
 struct priceData {
-    struct day Monday[500];
-    struct day Tuesday[500];
-    struct day Wednesday[500];
-    struct day Thursday[500];
-    struct day Friday[500];
-    struct day Saturday[500];
-    struct day Sunday[500];
-    struct maxPrice maxPrices[1000];
+    struct day Monday[1001];
+    struct day Tuesday[1001];
+    struct day Wednesday[1001];
+    struct day Thursday[1001];
+    struct day Friday[1001];
+    struct day Saturday[1001];
+    struct day Sunday[1001];
+    struct maxPrice maxPrices[1001];
     int max_size;
 };
 

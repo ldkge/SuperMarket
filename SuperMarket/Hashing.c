@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include <time.h>
 #include "Hashing.h"
 #include "FileOperations.h"
@@ -95,7 +97,7 @@ unsigned int BKDRHash(char* str, unsigned int len)
     return hash;
 }
 
-void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_data[], int mult_max)
+int addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_data[], int mult_max)
 {
     CustomerData cstm_data;
     int i = 0;
@@ -104,7 +106,7 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
     char fileName[M];
     unsigned int hash, prehash;
     char* check;
-    int choice;
+    int choice = 0;
     int brk = 0;
     char output[500] = {0};
     
@@ -122,12 +124,12 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
         check = fgets(output, sizeof(output), file);
         
         do{
-            printf("\n0)MurmurHash2\n1)KnuthHash\n2)BKDRHash\nChoose the hash function: ");
+            printf("\n0)BKDRHash\n1)MurmurHash2\n2)KnuthHash\nChoose hash function: ");
             scanf("%d", &choice);
-            if (choice < 3) {
+            if (isdigit(choice) && choice < 3) {
                 printf("\nCalculating...\n");
             }
-        } while (choice > 3);
+        } while (!isdigit(choice) && choice > 3);
         
         for (i = 0; check != NULL; i++) {
             cstm_data = readCustomerFile(output, pr_data, mult_data, mult_max);
@@ -135,13 +137,13 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
             
             switch (choice) {
                 case 0:
-                    prehash = MurmurHash2(cstm_data.customerID, 15, 2);
+                    prehash = abs(BKDRHash(cstm_data.customerID, 15));
                     break;
                     case 1:
-                    prehash = KnuthHash(cstm_data.customerID);
+                    prehash = abs(MurmurHash2(cstm_data.customerID, 15, 2));
                     break;
                     case 2:
-                    prehash = BKDRHash(cstm_data.customerID, 15);
+                    prehash = abs(KnuthHash(cstm_data.customerID));
                     break;
                 default:
                     break;
@@ -190,6 +192,6 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
     fclose(file);
     
     
-    
+    return choice;
 
 }

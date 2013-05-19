@@ -71,9 +71,13 @@ void top10(HashTable *table, int size)
         }
     }
 
+    printf("Top 10 Cards\n");
+    
     for (i = 0; i < 10; i++) {
         printf("%s\t%f\n", top[i].customerID, top[i].points);
     }
+    
+    printf("\n");
 }
 
 

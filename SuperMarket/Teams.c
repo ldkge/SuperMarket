@@ -53,7 +53,7 @@ void calcPrizes(TeamPointsData data[], HashTable table[])
                 points += table[hash].points;
             }
             else {
-                printf("Card %s does not exist.\n", output);
+                printf("\nCard %s does not exist.\n", output);
                 chk = 0;
             }
             
@@ -62,7 +62,8 @@ void calcPrizes(TeamPointsData data[], HashTable table[])
             check = fgets(output, sizeof(output), file);
         }
         
-        printf("You are eligible for:\n");
+        printf("\nYou are eligible for:\n");
+        
         
         for (i = 0; data[i].prize != 0; i++) {
             if (data[i].points <= points) {

@@ -186,7 +186,7 @@ void addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_da
         }
     }
     
-    printf("\nN    Collisions Efficiency  Time Elapsed\n%d\t%d\t%f\t%f\n", i, colision, (1-((float)colision/(float)i))*100, ((double)clock() - start) / CLOCKS_PER_SEC);
+    printf("\nN    Collisions Efficiency  Time Elapsed\n%d\t%d\t%f\t%f\n\n", i, colision, (1-((float)colision/(float)i))*100, ((double)clock() - start) / CLOCKS_PER_SEC);
     fclose(file);
     
     

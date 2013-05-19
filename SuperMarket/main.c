@@ -26,17 +26,17 @@ int main(int argc, const char * argv[])
     HashTable *table = malloc(S * sizeof(HashTable));
     int size;
     
-    size = readCategoriesFile(mult_data);
-    
     pr_data = readPricesFile();
     
-    readTeamPointsFile(team_data);
+    size = readCategoriesFile(mult_data);
     
     quickSort(mult_data, size);
     
     addToHashTable(table, pr_data, mult_data, size);
     
     top10(table, S);
+    
+    readTeamPointsFile(team_data);
     
     calcPrizes(team_data, table);
     

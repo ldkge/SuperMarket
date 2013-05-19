@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <time.h>
 #include "Hashing.h"
 #include "FileOperations.h"
@@ -126,10 +125,10 @@ int addToHashTable(HashTable table[], PriceData pr_data, MultiplierData mult_dat
         do{
             printf("\n0)BKDRHash\n1)MurmurHash2\n2)KnuthHash\nChoose hash function: ");
             scanf("%d", &choice);
-            if (isdigit(choice) && choice < 3) {
+            if (choice < 3) {
                 printf("\nCalculating...\n");
             }
-        } while (!isdigit(choice) && choice > 3);
+        } while (choice > 3);
         
         for (i = 0; check != NULL; i++) {
             cstm_data = readCustomerFile(output, pr_data, mult_data, mult_max);

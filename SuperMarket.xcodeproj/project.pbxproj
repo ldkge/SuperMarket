@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0072BD0816F8D2B9008AE0DC /* file1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027E16F08F9400F81F81 /* file1.txt */; };
-		0072BD0916F8D2B9008AE0DC /* file2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF027F16F08F9400F81F81 /* file2.txt */; };
-		0072BD0A16F8D2B9008AE0DC /* file3.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00EF028016F08F9400F81F81 /* file3.txt */; };
 		0074676D16F5EFB800EACA33 /* Hashing.c in Sources */ = {isa = PBXBuildFile; fileRef = 0074676C16F5EFB800EACA33 /* Hashing.c */; };
 		0097190C16F9F3E0001E4D27 /* Sorting.c in Sources */ = {isa = PBXBuildFile; fileRef = 0097190B16F9F3E0001E4D27 /* Sorting.c */; };
 		00AB0F6E16EF99DF004F95C0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00AB0F6D16EF99DF004F95C0 /* main.c */; };
@@ -20,9 +17,6 @@
 		5253C8DE173506DB00081AEF /* arxeio1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5253C8DB173506C800081AEF /* arxeio1.txt */; };
 		5253C8DF173506DB00081AEF /* arxeio2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5253C8DC173506C800081AEF /* arxeio2.txt */; };
 		5292120F1714B37300441C6D /* Teams.c in Sources */ = {isa = PBXBuildFile; fileRef = 5292120C1714B37300441C6D /* Teams.c */; };
-		52A0B149172834F800FE80C1 /* arxeio1_old.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 52A0B146172834E200FE80C1 /* arxeio1_old.txt */; };
-		52A0B14A172834F800FE80C1 /* arxeio2_old.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 52A0B147172834E200FE80C1 /* arxeio2_old.txt */; };
-		52A0B14B172834F800FE80C1 /* arxeio3_old.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 52A0B148172834E200FE80C1 /* arxeio3_old.txt */; };
 		52A0B14C172834F800FE80C1 /* arxeio4.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 529212081714B37300441C6D /* arxeio4.txt */; };
 		52A0B14D172834F800FE80C1 /* arxeio5.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 529212091714B37300441C6D /* arxeio5.txt */; };
 /* End PBXBuildFile section */
@@ -37,14 +31,8 @@
 				5253C8DD173506DB00081AEF /* arxeio3.txt in CopyFiles */,
 				5253C8DE173506DB00081AEF /* arxeio1.txt in CopyFiles */,
 				5253C8DF173506DB00081AEF /* arxeio2.txt in CopyFiles */,
-				52A0B149172834F800FE80C1 /* arxeio1_old.txt in CopyFiles */,
-				52A0B14A172834F800FE80C1 /* arxeio2_old.txt in CopyFiles */,
-				52A0B14B172834F800FE80C1 /* arxeio3_old.txt in CopyFiles */,
 				52A0B14C172834F800FE80C1 /* arxeio4.txt in CopyFiles */,
 				52A0B14D172834F800FE80C1 /* arxeio5.txt in CopyFiles */,
-				0072BD0816F8D2B9008AE0DC /* file1.txt in CopyFiles */,
-				0072BD0916F8D2B9008AE0DC /* file2.txt in CopyFiles */,
-				0072BD0A16F8D2B9008AE0DC /* file3.txt in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +60,6 @@
 		00AB0F8316EFA6DF004F95C0 /* FileOperations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FileOperations.c; sourceTree = "<group>"; };
 		00B5256416F51E7D0033D7C6 /* Points.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Points.c; sourceTree = "<group>"; };
 		00B5256616F51E8D0033D7C6 /* Points.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Points.h; sourceTree = "<group>"; };
-		00EF027E16F08F9400F81F81 /* file1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file1.txt; sourceTree = "<group>"; };
-		00EF027F16F08F9400F81F81 /* file2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file2.txt; sourceTree = "<group>"; };
-		00EF028016F08F9400F81F81 /* file3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = file3.txt; sourceTree = "<group>"; };
 		5253C8DA173506C800081AEF /* arxeio3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio3.txt; sourceTree = "<group>"; };
 		5253C8DB173506C800081AEF /* arxeio1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio1.txt; sourceTree = "<group>"; };
 		5253C8DC173506C800081AEF /* arxeio2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio2.txt; sourceTree = "<group>"; };
@@ -82,9 +67,6 @@
 		529212091714B37300441C6D /* arxeio5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arxeio5.txt; sourceTree = "<group>"; };
 		5292120C1714B37300441C6D /* Teams.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Teams.c; sourceTree = "<group>"; };
 		5292120D1714B37300441C6D /* Teams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teams.h; sourceTree = "<group>"; };
-		52A0B146172834E200FE80C1 /* arxeio1_old.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio1_old.txt; sourceTree = "<group>"; };
-		52A0B147172834E200FE80C1 /* arxeio2_old.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio2_old.txt; sourceTree = "<group>"; };
-		52A0B148172834E200FE80C1 /* arxeio3_old.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arxeio3_old.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,14 +114,8 @@
 				5253C8DA173506C800081AEF /* arxeio3.txt */,
 				5253C8DB173506C800081AEF /* arxeio1.txt */,
 				5253C8DC173506C800081AEF /* arxeio2.txt */,
-				52A0B146172834E200FE80C1 /* arxeio1_old.txt */,
-				52A0B147172834E200FE80C1 /* arxeio2_old.txt */,
-				52A0B148172834E200FE80C1 /* arxeio3_old.txt */,
 				529212081714B37300441C6D /* arxeio4.txt */,
 				529212091714B37300441C6D /* arxeio5.txt */,
-				00EF027E16F08F9400F81F81 /* file1.txt */,
-				00EF027F16F08F9400F81F81 /* file2.txt */,
-				00EF028016F08F9400F81F81 /* file3.txt */,
 			);
 			name = Data;
 			sourceTree = "<group>";

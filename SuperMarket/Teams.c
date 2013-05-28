@@ -81,8 +81,11 @@ void calcPrizes(TeamPointsData data[], HashTable table[], int choice)
         
         printf("\nYou are eligible for:\n");
         
+        if (data[0].points <= points) {
+            printf("Gift G%d\n", data[0].prize);
+        }
         
-        for (i = 0; data[i].prize != 0; i++) {
+        for (i = 1; data[i].prize != 0; i++) {
             if (data[i].points <= points) {
                 printf("Gift G%d\n", data[i].prize);
             }

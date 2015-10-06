@@ -5,7 +5,7 @@
 //  Created by George Lydakis on 3/12/13.
 //  Copyright (c) 2013 Brainstorm. All rights reserved.
 //
-
+/* Posa sou vale?
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
